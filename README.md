@@ -15,6 +15,7 @@ This Suite contains follow demo/template projects:
 		scripts for creating/init/drop of databases/users;
 
 	- sl-jsp-hib-ehc2 (Spring Login)
+		Spring Boot
 		JSP
 		Spring MVC + Spring-Security
 		DAO (using Hibernate Session Factory)
@@ -22,6 +23,7 @@ This Suite contains follow demo/template projects:
 		Ehcache2
 	
 	- sl-jsp-jpa-hib-ehc2 (Spring Login)
+		Spring Boot
 		JSP
 		Spring MVC + Spring-Security
 		DAO (using JPA EntityManager)
@@ -29,6 +31,7 @@ This Suite contains follow demo/template projects:
 		Ehcache2
 
 	- sl-jsp-djpa-jc-hib-ehc3 (Spring Login)
+		Spring Boot
 		JSP
 		Spring MVC + Spring-Security
 		DAO (Spring Data JPA)
@@ -37,6 +40,7 @@ This Suite contains follow demo/template projects:
 		Ehcache3
 	
 	- sl-jsp-djpa-jc-hib-infsp (Spring Login)
+		Spring Boot
 		JSP
 		Spring MVC + Spring-Security
 		DAO (Spring Data JPA)
@@ -45,6 +49,7 @@ This Suite contains follow demo/template projects:
 		Infinispan
 
 	- sl-jsp-djpa-eclnk-cache (Spring Login)
+		Spring Boot
 		JSP
 		Spring MVC + Spring-Security
 		DAO (Spring Data JPA)

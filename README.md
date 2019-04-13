@@ -9,7 +9,7 @@ This Suite contains follow demo/template projects:
 	- print-tool (Print Tool):
 		https://github.com/smansoft/print-tool/
 		http://blog.smansoft.com/2019/04/09/java-print-tool/
-		This tool is used by below examples/templates;
+		this tool is used by below examples/templates;
 	
 	- scripts 
 		scripts for creating/init/drop of databases/users;

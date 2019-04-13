@@ -50,7 +50,7 @@ This Suite contains follow demo/template projects:
 
 	- sl-jsp-djpa-eclnk-cache (Spring Login)
 		Spring Boot
-		JSP
+		JSP + Apache Tiles 3
 		Spring MVC + Spring-Security
 		DAO (Spring Data JPA)
 		EclipseLink

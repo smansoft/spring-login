@@ -12,7 +12,7 @@ This Suite contains follow demo/template projects:
 		This tool is used by bellow examples/templates;
 	
 	- scripts 
-		scripts for creating/init/drop of database
+		scripts for creating/init/drop of databases/users;
 
 	- sl-jsp-hib-ehc2 (Spring Login)
 		JSP

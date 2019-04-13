@@ -2,7 +2,7 @@
 
 Spring Login (Stack Templates).
 
-Suite of demo projects (Spring, Spring Boot, Spring-Security, JSP, Thymeleaf, Spring-Jpa, Spring-Data-Jpa, JCache, Ehcache, Infinispan, Hibernate, EclipseLink, MySQL, Logback, Maven, Gradle).
+Suite of demo projects (Spring, Spring Boot, Spring-Security, JSP, Apache Tiles, Thymeleaf, Spring-Jpa, Spring-Data-Jpa, JCache, Ehcache, Infinispan, Hibernate, EclipseLink, MySQL, Logback, Maven, Gradle).
 
 This Suite contains follow demo/template projects:
 
@@ -57,7 +57,7 @@ This Suite contains follow demo/template projects:
 		EclipseLink Cache
 
 
-These projects can be used as templates for creation of new Web Spring projects.
+These projects can be used as templates for creation of new Java Spring Framework projects.
 
 Project sl-jsp-djpa-eclnk-cache contains more advanced gui and more roles 
 (please, see screenshots here: doc/screenshots).

@@ -1,0 +1,24 @@
+
+rootProject.name = 'spring-login'
+
+
+include ':print-tool'
+
+include ':sl-jsp-hib-ehc2'
+include ':sl-jsp-jpa-hib-ehc2'
+
+include ':sl-jsp-djpa-jc-hib-ehc3'
+include ':sl-jsp-djpa-jc-hib-infsp'
+
+include ':sl-jsp-djpa-eclnk-cache'
+
+
+project(':print-tool').projectDir = new File("$rootDir/print-tool")
+
+project(':sl-jsp-hib-ehc2').projectDir = new File("$rootDir/sl-jsp-hib-ehc2")
+project(':sl-jsp-jpa-hib-ehc2').projectDir = new File("$rootDir/sl-jsp-jpa-hib-ehc2")
+
+project(':sl-jsp-djpa-jc-hib-ehc3').projectDir = new File("$rootDir/sl-jsp-djpa-jc-hib-ehc3")
+project(':sl-jsp-djpa-jc-hib-infsp').projectDir = new File("$rootDir/sl-jsp-djpa-jc-hib-infsp")
+
+project(':sl-jsp-djpa-eclnk-cache').projectDir = new File("$rootDir/sl-jsp-djpa-eclnk-cache")

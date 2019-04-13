@@ -1,0 +1,95 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="base" template="/WEB-INF/jsp/layout.base.jsp">
+		<put-attribute name="title" value="{.Spring Login (JSP).}"/>
+		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>
+		<put-attribute name="menu" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp"/>
+	</definition>
+
+	<definition name="base_menu" extends="base" >
+		<put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp" />
+	</definition>
+
+	<definition name="login" extends="base">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - Login"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/login_register/login.jsp"/>
+	</definition>
+
+	<definition name="registering" extends="base">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - Registering"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/login_register/registering.jsp"/>
+	</definition>
+
+	<definition name="registered" extends="base">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - Registered"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/login_register/registered.jsp"/>
+	</definition>
+	
+	<definition name="error_login" extends="base">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - Error"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/error/error.jsp"/>
+	</definition>
+
+	<definition name="deleted_login" extends="base">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - User Removed"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/user/deleted.jsp"/>
+	</definition>	
+
+	<definition name="info" extends="base_menu">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - User Info"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/user/info.jsp"/>
+	</definition>
+
+	<definition name="delete" extends="base_menu">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - Removing of the User"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/user/delete.jsp"/>
+	</definition>
+
+	<definition name="deleted" extends="base_menu">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - User Removed"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/user/deleted.jsp"/>
+	</definition>
+
+	<definition name="edit" extends="base_menu">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - Editing of User Info"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/user/edit.jsp"/>
+	</definition>
+
+	<definition name="user_error_update" extends="base_menu">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - Error of Updating of User Info"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/user/user_error_update.jsp"/>
+	</definition>
+
+	<definition name="user_not_found" extends="base_menu">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - User Not Found"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/user/user_not_found.jsp"/>
+	</definition>
+
+	<definition name="list" extends="base_menu">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - Users List"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/users/list.jsp"/>
+	</definition>
+
+	<definition name="error" extends="base_menu">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - Error"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/error/error.jsp"/>
+	</definition>
+
+
+	<definition name="table_demo" template="/WEB-INF/jsp/table_demo.jsp">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - Table Demo"/>
+	</definition>
+
+	<definition name="menu_demo" template="/WEB-INF/jsp/menu_demo.jsp">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - Menu Demo"/>
+	</definition>
+
+	<definition name="login_demo" template="/WEB-INF/jsp/login_demo.jsp">
+		<put-attribute name="title" value="{.Spring Login (JSP).} - Login Demo"/>
+	</definition>
+
+</tiles-definitions>

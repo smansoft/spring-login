@@ -1,0 +1,103 @@
+	
+project (":print-tool") {
+
+    apply plugin: 'maven'
+
+    description = 'print-tool'
+
+    dependencies {
+        compile(group: 'ch.qos.logback',    			name: 'logback-classic',        version: logback_version)
+        compile(group: 'ch.qos.logback',    			name: 'logback-core',        	version: logback_version)
+        compile(group: 'org.slf4j',         			name: 'jcl-over-slf4j',         version: slf4j_version)
+        compile(group: 'org.slf4j',         			name: 'slf4j-api',           	version: slf4j_version)
+        
+        testCompile(group: 'junit',                     name: 'junit',                  version: junit_version)
+    }
+
+    compileJava {
+    	options.compilerArgs << compiler_debug_arg
+    }
+
+    assemble.doFirst {
+    }
+
+    assemble.doLast {
+    }
+    
+    build.doFirst {
+    }
+
+    build.doLast {
+    }
+
+    task copyDependLibs(type: Copy) {
+        from (configurations.runtime)
+        into ("$target_root_dir/$bin_dir/$libs_dir")
+        doFirst {
+        }
+        doLast {
+        }
+    }
+    
+   task zip(type: Zip) {
+        from (jar.archivePath)
+        into("libs") {
+            from configurations.runtime
+        }    
+        into("src") {
+            from "$src_dir"
+        }    
+        doFirst {
+        }
+        doLast {
+            copy {
+                from (archivePath)
+                into ("$target_root_dir/$bin_dir")
+            }
+        }
+    }
+    
+    task copyJar(type: Copy) {
+        from 	(jar.archivePath)
+        into 	("$target_root_dir/$bin_dir")
+        doFirst {
+        }
+        doLast {
+        }
+    }
+
+    task copyRenameJar(type: Copy) {
+        from 	(jar.archivePath)
+        into 	("$target_root_dir/$bin_dir")
+        rename 	("$jar.archiveName","$jar.baseName.$jar.extension")
+        doFirst {
+        }
+        doLast {
+        }
+    }
+    
+    task buildDeploy {
+        dependsOn copyDependLibs
+        dependsOn zip
+        dependsOn copyJar
+        dependsOn copyRenameJar
+    }
+
+    task cleanRemove(type: Delete) {
+		delete ("$target_root_dir/$bin_dir/$jar.baseName.$jar.extension",
+			"$target_root_dir/$bin_dir/$jar.archiveName",
+			"$target_root_dir/$bin_dir/$jar.baseName-$jar.version"+".zip");
+		delete ("$target_root_dir/$bin_dir/$libs_dir")
+		delete ("$target_root_dir/$bin_dir/$logs_dir")
+		delete ("$project.projectDir/$bin_dir")
+    }
+
+    task slwRun {
+        doLast {
+	    	tasks.bootRun.exec()
+        }
+	}
+
+    clean.dependsOn(cleanRemove)
+    build.dependsOn(buildDeploy)
+}

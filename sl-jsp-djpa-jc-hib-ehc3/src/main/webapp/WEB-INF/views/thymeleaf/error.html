@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<title>Error Info (Thymeleaf)</title>
+	<link rel="stylesheet" href="resources/css/style.css">
+</head>
+<body>
+	<div class="page">
+		<div class="form">
+			<p align="center">Error: <h1 th:text="${errorCode}"></h1></p>
+			<p align="center" th:text="${errorMsg}"></p>
+		</div>
+	</div>
+</body>
+</html>

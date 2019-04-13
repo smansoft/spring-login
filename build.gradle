@@ -1,0 +1,140 @@
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
+    }
+}
+
+
+allprojects  {
+    apply plugin: 'maven'
+
+    group = 'com.smansoft.sl'
+
+	if (project.hasProperty('projectVersion')) {
+		project.version = project.projectVersion
+	} else {
+		project.version = '0.0.1'
+	}
+
+    ext {
+        slf4j_version        		= '1.7.25'
+        logback_version        		= '1.2.3'
+            
+        servlet_api_version         	= '3.1.0'
+        jstl_version                	= '1.2'
+        validation_api_version      	= '1.1.0.Final'
+            
+		hibernate_core_version      	= '5.2.17.Final'
+        eclipselink_version      		= '2.7.4'
+
+        persistence_api_remove_version  = '2.2.0'
+        persistence_api_version    		= '2.1.1'
+
+        spring_version              	= '5.0.6.RELEASE'
+        spring_security_version        	= '5.0.5.RELEASE'
+
+		spring_boot_version         	= '2.0.2.RELEASE'
+		spring_boot_gradle_version    	= '2.0.2.RELEASE'
+		spring_boot_thymeleaf_version	= '2.0.2.RELEASE'
+
+		tomcat_embed_jasper_version		= '9.0.5'
+
+		tiles_version					= '3.0.8'
+
+		ecj_version						= '4.6.1'
+		bootstrap_version				= '3.3.7'
+
+		cache_api_version				= '1.1.0'
+		ehcache_version      			= '3.5.2'
+		ehcache_spring_version      	= '1.2.0'
+		infinispan_version				= '9.2.1.Final'
+
+        tiles_version               	= '3.0.8'
+        jackson_version             	= '2.8.9'
+        
+        mysql_connector_version     	= '8.0.15'
+
+        dnsjava_version             	= '2.1.8'
+        commons_net_version         	= '3.6'
+        jmail_version               	= '1.4.7'
+        jaxb_version                	= '2.2.11'
+        
+        bc_version                  	= '1.57'
+        tomcat_catalina_version     	= '8.5.11'
+        
+        junit_version               	= '4.12'
+        
+        maven_compiler_plugin_version   = '3.6.1'
+        compiler_source_version         = '1.8'
+        compiler_target_version         = '1.8'
+
+        compiler_debug_arg      	= '-g:source,lines,vars'
+//      compiler_debug_arg      	= '-g:none'
+
+        maven_jar_plugin_version        = '3.0.2'
+
+        maven_dependency_plugin_version = '3.0.1'
+        maven_antrun_plugin_version     = '1.8'
+
+        maven_war_plugin_version        = '3.1.0'
+        jaxb2_maven_plugin_version      = '2.3.1'
+        
+        target2_folder_name             = 'bin'
+
+        target_root_dir                 = '../'
+
+        target_common_dir               = 'common'
+        target_currip_dir               = 'currip'
+        target_scanip_dir               = 'scanip'
+
+        bin_dir				            = 'bin'
+        libs_dir			            = 'libs'
+        logs_dir			            = 'logs'
+        src_dir				            = 'src'
+        src_clases_dir			        = 'src/main/java'
+
+        data_in_dir                     = 'data.in'
+        scripts_dir                     = 'scripts'
+        conf_dir                        = 'conf'
+        jaxb_dir                        = 'jaxb'
+        jaxb_crypto_dir                 = 'jaxb-crypto'
+        jaxb_scanip_dir                 = 'jaxb-scanip'
+
+        jar_fext            			= 'jar'
+        war_fext            			= 'war'
+        arc_fext            			= 'zip'
+        
+        project_build_sourceEncoding    = 'UTF-8'
+    }
+
+}
+
+
+subprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+    
+    repositories {
+        jcenter()
+        mavenLocal()
+        maven { url "http://repo2.maven.org/maven2" }
+        maven { url "http://repo.maven.apache.org/maven2" }
+		maven { url "http://central.maven.org/maven2" }
+        maven { url "http://repository.jboss.com/maven2/" }
+        maven { url "https://repository.jboss.org/nexus/content/groups/developer/" }
+        maven { url "http://maven.springframework.org/release" }
+        maven { url "http://maven.springframework.org/milestone" }
+        maven { url "http://maven.springframework.org/snapshot" }
+        maven { url "https://repository.jboss.org/nexus/content/groups/public-jboss" }
+    }
+}

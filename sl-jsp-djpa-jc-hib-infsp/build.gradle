@@ -1,0 +1,137 @@
+	
+project (":sl-jsp-djpa-jc-hib-infsp") {
+
+    apply plugin: 'maven'
+	apply plugin: 'org.springframework.boot'
+	apply plugin: 'war'
+
+    description = 'spring-login-web Webapp'
+
+    dependencies {
+        compile project(':print-tool')
+
+        compile(group: 'javax.servlet',             name: 'jstl',                   	version: jstl_version)
+	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-web', 	version: spring_boot_version) {
+			exclude(module: 'spring-boot-starter-logging')
+	    }
+   	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-security', 		version: spring_boot_version)
+   	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-data-jpa', 		version: spring_boot_version)
+  	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-cache', 			version: spring_boot_version)
+	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-tomcat', 		version: spring_boot_version)
+	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-thymeleaf', 		version: spring_boot_thymeleaf_version)
+	    
+		compile(group: 'org.infinispan', 			name: 'infinispan-hibernate-cache', 		version: infinispan_version)
+		compile(group: 'org.infinispan', 			name: 'infinispan-jcache', 					version: infinispan_version)
+
+	    compile(group: 'org.apache.tomcat.embed', 			name: 'tomcat-embed-jasper', 		version: tomcat_embed_jasper_version)
+	    compile(group: 'org.eclipse.jdt.core.compiler', 	name: 'ecj', 						version: ecj_version)
+	    compile(group: 'org.webjars', 						name: 'bootstrap', 					version: bootstrap_version)
+
+        compile(group: 'mysql',                         name: 'mysql-connector-java',   version: mysql_connector_version)
+
+        compile(group: 'org.hibernate',					name: 'hibernate-core',   		version: hibernate_core_version)
+        compile(group: 'org.hibernate',					name: 'hibernate-jcache',  		version: hibernate_core_version)
+
+        compile(group: 'org.hibernate',					name: 'hibernate-c3p0',  		version: hibernate_core_version)
+
+        compile(group: 'ch.qos.logback',    			name: 'logback-classic',        version: logback_version)
+        compile(group: 'ch.qos.logback',    			name: 'logback-core',        	version: logback_version)
+        compile(group: 'org.slf4j',         			name: 'jcl-over-slf4j',         version: slf4j_version)
+        compile(group: 'org.slf4j',         			name: 'slf4j-api',           	version: slf4j_version)
+        
+        testCompile(group: 'junit',                     name: 'junit',                  version: junit_version)
+    }
+
+    compileJava {
+    	options.compilerArgs << compiler_debug_arg
+    }
+
+	war {
+    	manifest {
+        	attributes 'Main-Class': 'com.smansoft.sl.SpringLoginApplication'
+	    }
+	}
+
+    assemble.doFirst {
+    }
+
+    assemble.doLast {
+    }
+    
+    build.doFirst {
+    }
+
+    build.doLast {
+    }
+
+    task copyDependLibs(type: Copy) {
+        from (configurations.runtime)
+        into ("$target_root_dir/$bin_dir/$libs_dir")
+        doFirst {
+        }
+        doLast {
+        }
+    }
+    
+   task zip(type: Zip) {
+        from (war.archivePath)
+        into("libs") {
+            from configurations.runtime
+        }    
+        into("src") {
+            from "$src_dir"
+        }    
+        doFirst {
+        }
+        doLast {
+            copy {
+                from (archivePath)
+                into ("$target_root_dir/$bin_dir")
+            }
+        }
+    }
+    
+    task copyJar(type: Copy) {
+        from 	(war.archivePath)
+        into 	("$target_root_dir/$bin_dir")
+        doFirst {
+        }
+        doLast {
+        }
+    }
+
+    task copyRenameJar(type: Copy) {
+        from 	(war.archivePath)
+        into 	("$target_root_dir/$bin_dir")
+        rename 	("$war.archiveName","$war.baseName.$war.extension")
+        doFirst {
+        }
+        doLast {
+        }
+    }
+    
+    task buildDeploy {
+        dependsOn copyDependLibs
+        dependsOn zip
+        dependsOn copyJar
+        dependsOn copyRenameJar
+    }
+
+    task cleanRemove(type: Delete) {
+		delete ("$target_root_dir/$bin_dir/$war.baseName.$war.extension",
+			"$target_root_dir/$bin_dir/$war.archiveName",
+			"$target_root_dir/$bin_dir/$war.baseName-$war.version"+".zip");
+		delete ("$target_root_dir/$bin_dir/$libs_dir")
+		delete ("$target_root_dir/$bin_dir/$logs_dir")
+		delete ("$project.projectDir/$bin_dir")
+    }
+
+    task slwRun {
+        doLast {
+	    	tasks.bootRun.exec()
+        }
+	}
+
+    clean.dependsOn(cleanRemove)
+    build.dependsOn(buildDeploy)
+}

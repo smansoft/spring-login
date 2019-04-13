@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://www.ehcache.org/ehcache.xsd"
+         updateCheck="true"
+         monitoring="autodetect"
+         dynamicConfig="true">
+
+	<diskStore path="java.io.tmpdir"/>
+
+	<defaultCache
+		maxElementsInMemory="10000" eternal="false"
+		timeToIdleSeconds="3600" timeToLiveSeconds="3600" 
+		overflowToDisk="true" diskPersistent="false"
+		maxElementsOnDisk="0"
+		diskSpoolBufferSizeMB="30" diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU">
+	</defaultCache>
+
+	<cache name="com.smansoft.sl.persistence.entities.UserEntity" 
+		maxElementsInMemory="10000" eternal="false"
+		timeToIdleSeconds="3600" timeToLiveSeconds="3600" 
+		overflowToDisk="true" diskPersistent="false"
+		maxElementsOnDisk="0"
+		diskSpoolBufferSizeMB="30" diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU">
+	</cache>
+
+	<cache name="com.smansoft.sl.persistence.entities.AuthorityEntity"
+		maxElementsInMemory="10000" eternal="false"
+		timeToIdleSeconds="3600" timeToLiveSeconds="3600" 
+		overflowToDisk="true" diskPersistent="false"
+		maxElementsOnDisk="0"
+		diskSpoolBufferSizeMB="30" diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU">
+	</cache>
+
+</ehcache>

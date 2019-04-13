@@ -1,0 +1,657 @@
+
+body {
+	background: #FFFFFF;
+	font-family: "Tahoma", Geneva, sans-serif;
+	color: #444444;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 14px;
+}
+
+body.custom-font-enabled {
+	font-family: "Tahoma", Geneva, sans-serif;
+}
+
+.page-login, .page {
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.page-login {
+	width: 100%;
+}
+
+.page {
+	width: 100%;
+}
+
+.form-login, .form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  margin: 0 auto 7.14em;
+  padding: 3.22em;
+  text-align: center;
+  box-shadow: 0 0 1.43em 0 rgba(0, 0, 0, 0.2), 0 0.36em  0.36em 0 rgba(0, 0, 0, 0.24);
+}
+
+.form-login {
+  max-width: 42.9em;
+}
+
+.form {
+	max-width: 65.7em;
+}
+
+.form-login input,
+.form input {
+  font-family: "Tahoma", Geneva, sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 1.071em;
+  padding: 1.071em;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+.form-login select,
+.form select {
+  font-family: "Tahoma", Geneva, sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 1.071em;
+  padding: 1.071em;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+.form-login .input-checkbox,
+.form .input-checkbox {
+  font-family: "Tahoma", Geneva, sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: auto;
+  border: 0;
+  margin: 0 0 1.071em;
+  padding: 1.071em;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+.form-login button,
+.form button {
+  font-family: "Tahoma", Geneva, sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 14.29em;
+  border: 0;
+  padding: 1.071em;
+  color: #FFFFFF;
+  font-size: 1em;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form-login p,
+.form p {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: #999999;  
+  font-family: "Tahoma", Geneva, sans-serif;
+  font-size: 1.29em;
+}
+.form-login button:hover,.form-login button:active,.form-login button:focus,
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+.form-login .message,
+.form .message {
+  margin: 1.071em 0 0;
+  color: #b3b3b3;
+  font-size: 1em;
+}
+.form-login a,
+.form a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form-login .message input,
+.form .message input {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form-login .login-form {
+}
+.form-login .register-form {
+}
+.form-login .edit-form {
+}
+.form .delete-form {
+}
+.form-login .header,
+.form .header {
+	text-align: center;
+	font-weight: bold;
+    margin-bottom: 1.071em;
+}
+
+
+.div-input-line {
+	width: 100%;
+	overflow: auto;
+    text-transform: uppercase;
+}
+
+.div-input-line-button {
+    margin-top: 1.071em;
+}
+
+.div-50p-left {
+	width: 50%;
+    font-size: 0.86em;	
+  	float: left;
+}
+
+.div-left-in {
+	width: 95%;
+	float: right;
+    padding-right: 0.36em;
+	padding-top: 1.071em;
+	text-align: right;
+    font-weight: bold;
+	float: left;
+}
+
+.div-50p-right {
+	width: 50%;
+	float: right;
+}
+
+.div-right-in {
+	width: 95%;
+    float: left;
+    padding-left: 0.36em;
+	padding-top: 0em;	
+	text-align: left;
+}
+
+.div-right-in-p {
+	width: 95%;
+    float: left;
+	padding-left: 0.36em;
+    margin-right: 0.36em;
+	padding-top: 0em;
+	text-align: left;
+}
+
+.div-right-in-chb {
+    width: auto;
+    float: left;
+    margin-left: 0.36em;
+    padding-top: 0.21em;
+}
+
+.div-roles {
+	text-align: left;
+	background: #f2f2f2;
+	padding: 1.071em;
+}
+
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.container .info {
+  margin: 3.57em auto;
+  text-align: center;
+}
+.container .info h1 {
+  margin: 0 0 1.07em;
+  padding: 0;
+  color: #1a1a1a;
+}
+.container .info span {
+  color: #4d4d4d;
+  font-size: 0.86em;
+}
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+.container .info span .fa {
+  color: #EF3B3A;
+}
+
+.container {
+  margin: 5% 3%;
+}
+
+
+@media (min-width: 48em) {
+  .container {
+    margin: 2%;
+  }
+}
+@media (min-width: 75em) {
+  .container {
+    margin: 2em auto;
+    max-width: 75em;
+  }
+}
+
+
+
+.responsive-table {
+	width: 100%;
+	margin-bottom: 1.5em;
+	font-size: 1em;
+}
+@media (min-width: 48em) {
+  .responsive-table {
+	font-size: 1em;
+  }
+}
+@media (min-width: 62em) {
+  .responsive-table {
+    font-size: 1em;
+  }
+}
+.responsive-table thead {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+@media (min-width: 48em) {
+  .responsive-table thead {
+    position: relative;
+    clip: auto;
+    height: auto;
+    width: auto;
+    overflow: auto;
+  }
+}
+.responsive-table thead th {
+  background-color: #4CAF50;
+  border: 1px solid #4CAF50;
+  font-weight: normal;
+  text-align: center;
+  color: white;
+}
+.responsive-table thead th:first-of-type {
+  text-align: left;
+  width: 10em;
+}
+.responsive-table tbody,
+.responsive-table tr,
+.responsive-table th,
+.responsive-table td {
+  display: block;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+}
+@media (min-width: 48em) {
+  .responsive-table tr {
+    display: table-row;
+  }
+}
+.responsive-table th,
+.responsive-table td {
+  padding: .5em;
+  vertical-align: middle;
+}
+@media (min-width: 30em) {
+  .responsive-table th,
+  .responsive-table td {
+    padding: .75em .5em;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table th,
+  .responsive-table td {
+    display: table-cell;
+    padding: .5em;
+  }
+}
+@media (min-width: 62em) {
+  .responsive-table th,
+  .responsive-table td {
+    padding: .75em .5em;
+  }
+}
+@media (min-width: 75em) {
+  .responsive-table th,
+  .responsive-table td {
+    padding: .75em;
+  }
+}
+.responsive-table caption {
+  margin-bottom: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+@media (min-width: 48em) {
+  .responsive-table caption {
+    font-size: 1em;
+  }
+}
+.responsive-table tfoot {
+  font-size: .8em;
+  font-style: italic;
+}
+@media (min-width: 62em) {
+  .responsive-table tfoot {
+    font-size: 1em;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table tbody {
+    display: table-row-group;
+  }
+}
+.responsive-table tbody tr {
+  margin-bottom: 1em;
+  border: 2px solid #43A047;
+}
+@media (min-width: 48em) {
+  .responsive-table tbody tr {
+    display: table-row;
+    border-width: 1px;
+  }
+}
+.responsive-table tbody tr:last-of-type {
+  margin-bottom: 0;
+}
+@media (min-width: 48em) {
+  .responsive-table tbody tr:nth-of-type(even) {
+    background-color: rgba(94, 93, 82, 0.1);
+  }
+}
+.responsive-table tbody th[scope="row"] {
+  background-color: #4CAF50;
+  color: white;
+}
+@media (min-width: 48em) {
+  .responsive-table tbody th[scope="row"] {
+    background-color: transparent;
+    color: #5e5d52;
+    text-align: left;
+    max-width: 130px;
+  }
+}
+.responsive-table tbody td {
+  text-align: right;
+  min-height: 1.0em; 
+}
+@media (min-width: 30em) {
+  .responsive-table tbody td {
+    border-bottom: 1px solid #4CAF50;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table tbody td {
+    text-align: center;
+    max-width: 130px;
+	text-overflow: ellipsis; 
+	overflow: hidden; 
+  }
+}
+.responsive-table tbody td[data-type=currency] {
+  text-align: right;
+}
+.responsive-table tbody td[data-title]:before {
+  content: attr(data-title);
+  float: left;
+  font-size: .8em;
+  color: rgba(94, 93, 82, 0.75);
+}
+@media (min-width: 30em) {
+  .responsive-table tbody td[data-title]:before {
+    font-size: .9em;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table tbody td[data-title]:before {
+    content: none;
+  }
+}
+
+.responsive-table .width-5p {
+	text-overflow: ellipsis; 
+	overflow: hidden; 
+	width: 5%;
+}
+
+.responsive-table .width-15p {
+	text-overflow: ellipsis; 
+	overflow: hidden; 
+	width: 15%;
+}
+
+.responsive-table .width-20p {
+	text-overflow: ellipsis; 
+	overflow: hidden; 
+	width: 20%;
+}
+
+.responsive-table .width-30p {
+	text-overflow: ellipsis; 
+	overflow: hidden; 
+	width: 30%;
+}
+
+.responsive-table .width-70p {
+	text-overflow: ellipsis; 
+	overflow: hidden; 
+	width: 70%;
+}
+
+.responsive-table .width-100p {
+	width: auto;
+}
+ 
+@media all and (max-width: 768px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+
+.page-login,.page {
+  width: 100%;
+}
+
+.form-login,.form {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0.36em;
+  box-shadow: none;
+}
+
+.form-login input,
+.form input {
+  font-family: "Tahoma", Geneva, sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 0;
+  padding: 1.071em;
+  box-sizing: border-box;
+  font-size: 1em;  
+}
+
+.form-login select,
+.form select {
+  font-family: "Tahoma", Geneva, sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 0;
+  padding: 1.071em;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+.form-login button,
+.form button {
+  font-family: "Tahoma", Geneva, sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 14.29em;  
+  border: 0;
+  padding: 1.071em;  
+  margin-top: 1.071em;
+  color: #FFFFFF;
+  font-size: 1em;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.form-login .header,
+.form .header {
+	text-align: center;
+	font-weight: bold;
+    margin-bottom: 0;
+}
+
+
+.container {
+  max-width: 100%;
+  margin: 0;
+}
+
+.responsive-table {
+	margin: auto;
+	width: 300px;
+}
+
+.div-input-line {
+	width: 100%;
+	overflow: auto;
+    text-transform: uppercase;
+}
+
+.div-input-line-button {
+    margin-top: 1.071em;
+}
+
+.div-50p-left {
+	width: 100%;
+    font-size: 0.86em;
+  	float: left;
+}
+
+.div-left-in {
+	width: 100%;
+	float: right;
+    padding-right: 0em;
+    padding-top: 1.071em;
+	text-align: left;
+    font-weight: bold;
+	float: left;
+}
+
+.div-50p-right {
+	width: 100%;
+	float: right;
+}
+
+.div-right-in {
+	width: 100%;
+    float: left;
+    padding-left: 0em;
+	padding-top: 0em;
+	text-align: left;
+}
+
+.div-right-in-p {
+	width: 100%;
+    float: left;
+    padding-left: 0em;
+    margin-right: 0em;
+	padding-top: 0em;	
+	text-align: left;
+}
+
+.div-right-in-chb {
+    width: auto;
+    float: left;
+	margin-left: 0em;
+    padding-top: 0.21em;
+}
+
+.div-roles {
+	text-align: left;
+	background: #f2f2f2;
+	padding: 1.071em;
+}
+
+}
+
+@media (min-width: 15em) and (max-width: 768px) {
+	.responsive-table,
+	.responsive-table .width-100p {
+		width: 15em;
+	}
+}
+
+@media (min-width: 20em) and (max-width: 768px) {
+	.responsive-table,
+	.responsive-table .width-100p {
+		width: 20em;
+	}
+}
+
+@media (min-width: 25em) and (max-width: 768px) {
+	.responsive-table,
+	.responsive-table .width-100p {
+		width: 25em;
+	}
+}
+
+@media (min-width: 30em) and (max-width: 768px) {
+	.responsive-table,
+	.responsive-table .width-100p {
+		width: 30em;
+	}
+}
+
+@media (min-width: 35em) and (max-width: 768px) {
+	.responsive-table,
+	.responsive-table .width-100p {
+		width: 35em;
+	}
+}
+
+@media (min-width: 40em) and (max-width: 768px) {
+	.responsive-table,
+	.responsive-table .width-100p {
+		width: 40em;
+	}
+}
+
+.cursor-wait {
+    cursor: wait !important;
+}
+
+.cursor-default {
+    cursor: default !important;
+}

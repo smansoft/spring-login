@@ -7,7 +7,7 @@ Suite of demo projects (Spring, Spring Boot, Spring-Security, JSP, Thymeleaf, Sp
 This Suite contains follow demo/template projects:
 
 	- print-tool (Print Tool):
-		https://github.com/smansoft/print-tool
+		https://github.com/smansoft/print-tool/
 		http://blog.smansoft.com/2019/04/09/java-print-tool/
 		This tool is used by bellow examples/templates;
 	

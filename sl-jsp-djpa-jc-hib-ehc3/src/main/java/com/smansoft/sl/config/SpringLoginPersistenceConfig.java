@@ -12,6 +12,7 @@ import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.orm.jpa.EntityManagerFactoryBuilderCustomizer;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizers;
@@ -90,14 +91,15 @@ public class SpringLoginPersistenceConfig extends JpaBaseConfiguration {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder factoryBuilder) {
 		return super.entityManagerFactory(factoryBuilder);
 	}
-
+	
 	/**
 	 * 
 	 */
 	@Bean("entityManagerFactoryBuilder")
 	@ConditionalOnMissingBean
-	public EntityManagerFactoryBuilder entityManagerFactoryBuilder(JpaVendorAdapter jpaVendorAdapter,	ObjectProvider<PersistenceUnitManager> persistenceUnitManager) {
-		return super.entityManagerFactoryBuilder(jpaVendorAdapter, persistenceUnitManager);
+	public EntityManagerFactoryBuilder entityManagerFactoryBuilder(JpaVendorAdapter jpaVendorAdapter,	ObjectProvider<PersistenceUnitManager> persistenceUnitManager,
+			ObjectProvider<EntityManagerFactoryBuilderCustomizer> customizers) {
+		return super.entityManagerFactoryBuilder(jpaVendorAdapter, persistenceUnitManager, customizers);
 	}
 
 	/**

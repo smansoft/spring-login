@@ -113,17 +113,26 @@
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
 			<version>${eclipselink.version}</version>
+<!--
         	<exclusions>
             	<exclusion>
                 	<groupId>org.eclipse.persistence</groupId>
 	                <artifactId>javax.persistence</artifactId>
     	        </exclusion>
         	</exclusions>
+-->
 		</dependency>
+<!--
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>javax.persistence</artifactId>
 			<version>${persistence_api.version}</version>
+		</dependency>
+-->
+		<dependency>
+		    <groupId>org.eclipse.persistence</groupId>
+		    <artifactId>org.eclipse.persistence.jpa</artifactId>
+		    <version>2.7.4</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>

@@ -108,5 +108,5 @@ public class SpringLoginPersistenceConfig extends JpaBaseConfiguration {
     public PlatformTransactionManager getJpaTransactionManager() {
     	return super.transactionManager();
     }
-    
+
 }

@@ -2,6 +2,7 @@
 .recommenders/
 .settings/
 .gradle/
+.bin/
 
 .classpath
 .project 
@@ -11,9 +12,6 @@
 *.war
 *.ear
 *.log
-
-Debug
-Release
 
 target
 build

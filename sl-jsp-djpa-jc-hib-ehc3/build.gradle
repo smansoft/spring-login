@@ -20,7 +20,7 @@ project (":sl-jsp-djpa-jc-hib-ehc3") {
 	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-tomcat', 		version: spring_boot_version)
 	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-thymeleaf', 		version: spring_boot_thymeleaf_version)
 
-   		compile(group: 'org.ehcache', 						name: 'ehcache', 					version: ehcache_version)
+   		compile(group: 'org.ehcache', 						name: 'ehcache', 					version: ehcache3_version)
 
 	    compile(group: 'org.apache.tomcat.embed', 			name: 'tomcat-embed-jasper', 		version: tomcat_embed_jasper_version)
 	    compile(group: 'org.eclipse.jdt.core.compiler', 	name: 'ecj', 						version: ecj_version)

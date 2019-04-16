@@ -47,7 +47,7 @@ allprojects  {
 		ecj_version						= '4.6.1'
 		bootstrap_version				= '4.3.1'
 
-		ehcache_version      				= '3.7.1'
+		ehcache3_version      				= '3.7.1'
 		infinispan_version					= '9.4.12.Final'
 		infinispan_hibernate_cache_version	= '9.2.5.Final'
         

@@ -1,38 +1,131 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+  	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>com.smansoft.sl</groupId>
-		<artifactId>spring-login</artifactId>
+		<artifactId>spring-login-sb</artifactId>
 		<version>0.0.1</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../pom-sb.xml</relativePath>
 	</parent>
 
-	<artifactId>print-tool</artifactId>
-	<packaging>jar</packaging>
+	<groupId>com.smansoft.sl</groupId>
+	<artifactId>sl-jsp-jpa-hib-ehc2</artifactId>
+	<version>0.0.1</version>
+	<packaging>war</packaging>
 
-	<name>print-tool</name>
+	<name>sl-jsp-jpa-hib-ehc2</name>
+
+    <repositories>
+    </repositories>
 
 	<properties>
 	</properties>
 
 	<dependencies>
 		<dependency>
-		    <groupId>ch.qos.logback</groupId>
-		    <artifactId>logback-classic</artifactId>
-		    <version>${logback.version}</version>
+			<groupId>com.smansoft.sl</groupId>
+			<artifactId>print-tool</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-		    <groupId>ch.qos.logback</groupId>
-		    <artifactId>logback-core</artifactId>
-		    <version>${logback.version}</version>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>jcl-over-slf4j</artifactId>
-		    <version>${slf4j.version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring-boot.version}</version>
+        	<exclusions>
+            	<exclusion>
+                	<groupId>org.springframework.boot</groupId>
+	                <artifactId>spring-boot-starter-logging</artifactId>
+    	        </exclusion>
+        	</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>${spring-boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>${spring-boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<version>${spring-boot.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<version>${spring-boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<version>${tomcat-embed-jasper.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jdt.core.compiler</groupId>
+			<artifactId>ecj</artifactId>
+			<version>${ecj.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>${bootstrap.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate-core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>${hibernate-core.version}</version>
+        	<exclusions>
+            	<exclusion>
+                	<groupId>net.sf.ehcache</groupId>
+	                <artifactId>ehcache</artifactId>
+    	        </exclusion>
+        	</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>${hibernate-core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>${ehcache2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.slf4j</groupId>
@@ -45,8 +138,7 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
-
+  	</dependencies>
 
 	<build>
 		<plugins>
@@ -62,7 +154,16 @@
 					</compilerArgs>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven-war-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot.version}</version>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -96,7 +197,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -134,14 +234,8 @@
 									file="${basedir}/${target.root.dir}/${target2.folder.name}/${project.build.finalName}.${project.packaging}">
 								</delete>
 								<delete
-									file="${basedir}/${target.root.dir}/${target2.folder.name}/${project.artifactId}.${project.packaging}">
-								</delete>
-								<delete
 									file="${basedir}/${target.root.dir}/${target2.folder.name}/${project.build.finalName}.${arc.fext}">
 								</delete>
-				                <delete>
-                   					<fileset dir="${basedir}/${target.root.dir}/${target2.folder.name}/${libs.dir}" includes="*" />
-                				</delete>
 							</target>
 						</configuration>
 					</execution>
@@ -168,7 +262,7 @@
 
 				</executions>
 			</plugin>
-		</plugins>
+      	</plugins>
 	</build>
 
 </project>

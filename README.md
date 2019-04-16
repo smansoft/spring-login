@@ -63,5 +63,9 @@ Project sl-jsp-djpa-eclnk-cache contains more advanced gui and more roles
 (please, see screenshots here: doc/screenshots).
 Also sl-jsp-djpa-eclnk-cache creates default Root Admin (login: 'root' passw: 'root').
 
+You can launch built applications as using 
+	java -jar sl-xxx.war
+as you can deploy them to your Java Servlet Container.
+
 Please, read this post: http://blog.smansoft.com/2019/04/13/spring-login-stack-templates/
 for more info and send your notes and questions to info@smansoft.com.

@@ -60,41 +60,8 @@
 		<!-- logging -->
 		<slf4j.version>1.7.26</slf4j.version>
 		<logback.version>1.2.3</logback.version>
-
 		<!-- -->
-   		<servlet-api.version>4.0.1</servlet-api.version>
-		<jstl.version>1.2</jstl.version>
-		<validation-api.version>2.0.1.Final</validation-api.version>
-		<!-- -->
-		<hibernate-core.version>5.4.2.Final</hibernate-core.version>
-		<eclipselink.version>2.7.4</eclipselink.version>
-
-		<persistence_api.version>2.1.1</persistence_api.version>
-		<spring.version>5.1.6.RELEASE</spring.version>
-		<spring-security.version>5.1.5.RELEASE</spring-security.version>
-
-		<spring-boot.version>2.1.4.RELEASE</spring-boot.version>
-		<spring-boot-gradle.version>2.1.4.RELEASE</spring-boot-gradle.version>
-		<spring-boot-thymeleaf.version>2.1.4.RELEASE</spring-boot-thymeleaf.version>
-
-		<tomcat-embed-jasper.version>9.0.19</tomcat-embed-jasper.version>
-	
-		<tiles.version>3.0.8</tiles.version>
-
-		<ecj.version>4.6.1</ecj.version>
-		<bootstrap.version>4.3.1</bootstrap.version>
-
-
-		<ehcache3.version>3.7.1</ehcache3.version>
-		<ehcache2.version>2.10.6</ehcache2.version>
-
-		<infinispan.version>9.4.12.Final</infinispan.version>
-		<infinispan-hibernate-cache.version>9.2.5.Final</infinispan-hibernate-cache.version>
-
-		<mysql-connector.version>8.0.15</mysql-connector.version>
-
 		<junit.version>4.12</junit.version>
-
 		<!-- Plug-ins -->
 		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 		<compiler-source.version>1.8</compiler-source.version>

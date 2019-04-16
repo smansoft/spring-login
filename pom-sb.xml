@@ -137,12 +137,10 @@
 	</dependencies>
 
 	<modules>
-<!--
 		<module>./sl-jsp-hib-ehc2</module>
 		<module>./sl-jsp-jpa-hib-ehc2</module>
 		<module>./sl-jsp-djpa-jc-hib-ehc3</module>
 		<module>./sl-jsp-djpa-jc-hib-infsp</module>
--->
 		<module>./sl-jsp-djpa-eclnk-cache</module>
   	</modules>
 

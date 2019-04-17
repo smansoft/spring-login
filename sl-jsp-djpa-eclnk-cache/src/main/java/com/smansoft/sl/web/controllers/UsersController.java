@@ -350,7 +350,7 @@ public class UsersController extends BaseController {
 	 * @return
 	 */
 	//POST "/user/edit.htm"
-	@PostMapping(value = DEF_USER_EDIT_HTM)
+	@PostMapping(value = {DEF_USER_EDIT_HTM, DEF_USERS_LOGIN_EDIT_HTM})
 	public ModelAndView postUserEditView(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute RegisterVO registerVO, BindingResult errors, ModelMap modelMap)  throws Exception {
 		String sessionId = request.getSession().getId();
@@ -587,67 +587,6 @@ public class UsersController extends BaseController {
 		} finally {
 			printToolStr.debug(sessionId, PrintSfx.SFX_OUT);
 		}
-	}
-
-	/**
-	 * 
-	 * @param request
-	 * @param response
-	 * @param login
-	 * @param modelMap
-	 * @return
-	 */
-	//GET "/table_demo.htm"
-	@GetMapping(value =  "/table_demo.htm")
-	public ModelAndView getTableDemoView(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
-		String sessionId = request.getSession().getId();
-		printToolStr.debug(sessionId, PrintSfx.SFX_IN);
-		ModelAndView modelAndView = new ModelAndView("table_demo", modelMap);
-		printToolStr.debug(sessionId, PrintSfx.SFX_OUT);
-		return modelAndView;
-	}
-	
-
-	/**
-	 * 
-	 * @param request
-	 * @param response
-	 * @param login
-	 * @param modelMap
-	 * @return
-	 */
-	//GET "/menu_demo.htm"
-	@GetMapping(value =  "/menu_demo.htm")
-	public ModelAndView getMenuDemoView(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
-		String sessionId = request.getSession().getId();
-		printToolStr.debug(sessionId, PrintSfx.SFX_IN);
-		ModelAndView modelAndView = new ModelAndView("menu_demo", modelMap);
-		
-		springLoginBreadCrumbBean.setPopCount(1);
-		String path = springLoginBreadCrumbBean.popPath();
-
-		printToolStr.debug(sessionId, "path = " + path);
-		
-		printToolStr.debug(sessionId, PrintSfx.SFX_OUT);
-		return modelAndView;
-	}
-
-	/**
-	 * 
-	 * @param request
-	 * @param response
-	 * @param login
-	 * @param modelMap
-	 * @return
-	 */
-	//GET "/login_demo.htm"
-	@GetMapping(value =  "/login_demo.htm")
-	public ModelAndView getLoginDemoView(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
-		String sessionId = request.getSession().getId();
-		printToolStr.debug(sessionId, PrintSfx.SFX_IN);
-		ModelAndView modelAndView = new ModelAndView("login_demo", modelMap);
-		printToolStr.debug(sessionId, PrintSfx.SFX_OUT);
-		return modelAndView;
 	}
 
 }

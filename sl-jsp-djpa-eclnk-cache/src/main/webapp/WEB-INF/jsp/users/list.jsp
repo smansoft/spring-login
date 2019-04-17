@@ -66,9 +66,9 @@
 			}
 			tableRow += '</td>';
 			tableRow += '<td class="width-15p width-100p" data-title="User Control">';
-			tableRow += '<div><a href="${contextPath}/users/' + user.login + '/info.htm" rel="external">User Info</a></div>';
-			tableRow += '<div><a href="${contextPath}/users/' + user.login + '/edit.htm" rel="external">Edit User Info</a></div>';
-			tableRow += '<div><a href="${contextPath}/users/' + user.login + '/delete.htm" rel="external">Delete User</a></div>';
+			tableRow += '<div><a href="' + '<c:url value="/users/"/>' + user.login + '/info.htm"' + 'rel="external">User Info</a></div>';
+			tableRow += '<div><a href="' + '<c:url value="/users/"/>' + user.login + '/edit.htm"' + 'rel="external">Edit User Info</a></div>';
+			tableRow += '<div><a href="' + '<c:url value="/users/"/>' + user.login + '/delete.htm"' + 'rel="external">Delete User</a></div>';
 			tableRow += '</td>';
 			tableRow += '</tr>';
 			$("#users-list-table-id > tbody").append(tableRow);
@@ -81,7 +81,7 @@
 		var pnJsonStr = JSON.stringify(pnJson);
 		jQuery.ajax(
 			{	'type': 'POST',
-				'url': '/users/list.json',
+				'url': '<c:url value="/users/list.json"/>',
 				'contentType': 'application/json',
 				'dataType': 'json',
 				'data': pnJsonStr,

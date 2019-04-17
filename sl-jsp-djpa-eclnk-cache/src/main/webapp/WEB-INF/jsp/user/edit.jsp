@@ -4,11 +4,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-
 <div class="page-login">
 	<div class="form-login">
 		<div class="header">Edit User Info:</div>
-		<form:form id="edit-form-id" class="edit-form" modelAttribute="registerVO" method="post" action="${contextPath}/user/edit.htm">
+		<form:form id="edit-form-id" class="edit-form" modelAttribute="registerVO" method="post" action="edit.htm">
 			<div class="div-input-line">
 				<div class="div-50p-left"><div class="div-left-in">User Login:</div></div>
 				<div class="div-50p-right"><div class="div-right-in"><form:input id="login-id" maxlength="255" path="login" placeholder="user login" readonly="true"/></div></div>

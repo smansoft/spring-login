@@ -4,7 +4,7 @@
 
 <div class="page-login">
 	<div class="form-login">
-		<form:form id="register-form-id" class="register-form" modelAttribute="registerVO" method="post" action="${contextPath}/register.htm">
+		<form:form id="register-form-id" class="register-form" modelAttribute="registerVO" method="post" action="register.htm">
 			<div class="div-input-line">
 				<div class="div-50p-left"><div class="div-left-in">User Login:</div></div>
 				<div class="div-50p-right"><div class="div-right-in"><form:input id="login-id" maxlength="255" path="login" placeholder="user login"/></div></div>
@@ -34,7 +34,7 @@
 				<div class="div-50p-right"><div class="div-right-in"><form:password id="password-confirm-id" maxlength="32" path="passwordConfirm" placeholder="confirm password"/></div></div>
 			</div>
 			<form:button id="register-form-create-id">Create</form:button>
-			<p class="message">Already registered? <a href="${contextPath}/login.htm">Sign In</a></p>
+			<p class="message">Already registered? <a href='<c:url value="/login.htm"/>'>Sign In</a></p>
 		</form:form>
 	</div>
 </div>

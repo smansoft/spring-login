@@ -191,26 +191,6 @@ public class LoginRegisterController extends BaseController {
 	 * 
 	 * @param request
 	 * @param response
-	 * @param modelMap
-	 * @return
-	 */
-	//GET "/register-1.htm"
-	@GetMapping(value = DEF_REGISTER_1_HTM)
-	public ModelAndView getUserRegister1View(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
-		String sessionId = request.getSession().getId();
-		printToolStr.debug(sessionId, PrintSfx.SFX_IN);
-		RegisterVO registerVO = new RegisterVO();
-		printToolStr.debug(sessionId, registerVO);
-		modelMap.put("registerVO", registerVO);
-		ModelAndView modelAndView = new ModelAndView("registering", modelMap);
-		printToolStr.debug(sessionId, PrintSfx.SFX_OUT);
-		return modelAndView;
-	}
-
-	/**
-	 * 
-	 * @param request
-	 * @param response
 	 * @param registerVO
 	 * @param errors
 	 * @param modelMap
@@ -237,26 +217,6 @@ public class LoginRegisterController extends BaseController {
 		ModelAndView modelAndView = new ModelAndView(UrlBasedViewResolver.REDIRECT_URL_PREFIX+DEF_REGISTERED_HTM, modelMap);
 		printToolStr.debug(sessionId, PrintSfx.SFX_OUT);
 		return modelAndView;
-	}
-
-	/**
-	 * 
-	 * @param request
-	 * @param response
-	 * @param registerVO
-	 * @param errors
-	 * @param modelMap
-	 * @return
-	 * @throws Exception
-	 */
-	//POST "/register-1.htm"
-	@PostMapping(value = DEF_REGISTER_1_HTM)
-	public ModelAndView postUserRegister1View(HttpServletRequest request, HttpServletResponse response,
-			@ModelAttribute RegisterVO registerVO, BindingResult errors, ModelMap modelMap) throws Exception {
-		String sessionId = request.getSession().getId();
-		printToolStr.debug(sessionId, PrintSfx.SFX_IN);
-		printToolStr.debug(sessionId, registerVO);
-		throw new Exception("Some Test Exception");
 	}
 
 	/**

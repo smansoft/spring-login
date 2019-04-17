@@ -135,7 +135,7 @@ public class ErrorController extends BaseController implements ErrorViewResolver
 		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		
-		if(!authentication.isAuthenticated() || "anonymousUser".equals(authentication.getName())) {
+		if(authentication == null || !authentication.isAuthenticated() || "anonymousUser".equals(authentication.getName())) {
 			errorPage = new ModelAndView("error_login", modelMap);			
 		} else {
 			errorPage = new ModelAndView("error", modelMap);			

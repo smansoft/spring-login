@@ -4,7 +4,7 @@
 
 <div class="page-login">
 	<div class="form-login">
-		<form:form id="register-success-form-id" class="register-form" modelAttribute="registerVO" method="post" action="${contextPath}/registered.htm">
+		<form:form id="register-success-form-id" class="register-form" modelAttribute="registerVO" method="post" action="registered.htm">
 			<p align="center">Registering of the User is successful</p>
 			<p align="left">login: ${login}</p>
 			<p align="left">email: ${email}</p>

@@ -79,17 +79,4 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/error/error.jsp"/>
 	</definition>
 
-
-	<definition name="table_demo" template="/WEB-INF/jsp/table_demo.jsp">
-		<put-attribute name="title" value="{.Spring Login (JSP).} - Table Demo"/>
-	</definition>
-
-	<definition name="menu_demo" template="/WEB-INF/jsp/menu_demo.jsp">
-		<put-attribute name="title" value="{.Spring Login (JSP).} - Menu Demo"/>
-	</definition>
-
-	<definition name="login_demo" template="/WEB-INF/jsp/login_demo.jsp">
-		<put-attribute name="title" value="{.Spring Login (JSP).} - Login Demo"/>
-	</definition>
-
 </tiles-definitions>

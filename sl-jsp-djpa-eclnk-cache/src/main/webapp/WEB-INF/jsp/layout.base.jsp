@@ -5,7 +5,6 @@
 
 <!DOCTYPE html>
 <html lang="en" >
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <head>
 	<title><tiles:insertAttribute name="title" ignore="true" /></title>
 	<tiles:insertAttribute name="header" />

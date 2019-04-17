@@ -4,7 +4,7 @@
 
 <div class="page">
 	<div class="form">
-		<form:form id="delete-success-form-id" class="delete-form" modelAttribute="userVO" method="post" action="${contextPath}/user/deleted.htm">
+		<form:form id="delete-success-form-id" class="delete-form" modelAttribute="userVO" method="post" action="deleted.htm">
 			<p align="left">User has been removed</p>
 			<p align="left">login: ${login}</p>
 			<p align="left">email: ${email}</p>

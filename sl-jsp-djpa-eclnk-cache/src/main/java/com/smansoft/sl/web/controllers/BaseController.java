@@ -36,13 +36,12 @@ public class BaseController {
 
 	public static final String DEF_REGISTER_HTM = "/register.htm";
 
-	public static final String DEF_REGISTER_1_HTM = "/register-1.htm";
 
 	public static final String DEF_REGISTERED_HTM = "/registered.htm";
 	
 	public static final String DEF_DELETED_HTM = "/deleted.htm";	
 
-	//
+
 	public static final String DEF_USER_INFO_HTM = "/user/info.htm";
 
 	public static final String DEF_USER_EDIT_HTM = "/user/edit.htm";

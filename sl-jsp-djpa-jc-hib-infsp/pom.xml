@@ -100,6 +100,10 @@
                 	<groupId>org.ehcache</groupId>
 	                <artifactId>ehcache</artifactId>
     	        </exclusion>
+            	<exclusion>
+                	<groupId>net.sf.ehcache</groupId>
+	                <artifactId>ehcache</artifactId>
+    	        </exclusion>
         	</exclusions>
 		</dependency>
 		<dependency>

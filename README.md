@@ -62,7 +62,7 @@ These projects can be used as templates for creation of new Java Spring Framewor
 Project sl-jsp-djpa-eclnk-cache contains more advanced gui, more roles and more advanced
 implementation of auth (please, see screenshots here: doc/screenshots).
 Also sl-jsp-djpa-eclnk-cache creates default Root Admin (login: 'root' passw: 'root').
-Root Admin cann't be removed (but can be updated, for ex. passw value).
+Root Admin cann't be removed, but can be updated (for ex. passw value).
 
 You can launch built applications as using 
 	java -jar sl-xxx.war

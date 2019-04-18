@@ -72,7 +72,7 @@ public class SpringLoginUserDetailsServiceImpl implements UserDetailsService {
 			userDetails = new User(userVO.getLogin(),userVO.getPassword(),userVO.getEnabled(),true,true,true,grantedAuthorities);
 		}
 		catch (Exception ex) {
-			throw new UsernameNotFoundException("User: " + username + " hasn't been found", ex);
+			throw new UsernameNotFoundException("User: " + username + " hasn't been found");
 		}
 		return userDetails;
 	}

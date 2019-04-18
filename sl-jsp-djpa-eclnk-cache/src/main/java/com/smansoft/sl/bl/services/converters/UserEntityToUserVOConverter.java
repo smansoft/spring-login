@@ -36,25 +36,25 @@ public class UserEntityToUserVOConverter implements BaseConverter<UserEntity, Us
 	@Override
 	public UserVO apply(UserEntity userEntity) {
 		UserVO userVO = new UserVO();
+		if(userEntity != null) {
+			userVO.setLogin(userEntity.getUserLogin());
+			userVO.setEmail(userEntity.getEmail());
+			userVO.setName(userEntity.getUserName());
+			userVO.setAddress(userEntity.getUserAddress());
+			userVO.setSex(userEntity.getSex().toString());
+			userVO.setPassword(userEntity.getPassword());
+			userVO.setEnabled(userEntity.getEnabled());
 
-		userVO.setLogin(userEntity.getUserLogin());
-		userVO.setEmail(userEntity.getEmail());
-		userVO.setName(userEntity.getUserName());
-		userVO.setAddress(userEntity.getUserAddress());
-		userVO.setSex(userEntity.getSex().toString());
-		userVO.setPassword(userEntity.getPassword());
-		userVO.setEnabled(userEntity.getEnabled());
+			List<UserRoleEntity> userRoleEntities = userEntity.getUserRoles();
+			List<String> userRoles = new ArrayList<>();
 
-		List<UserRoleEntity> userRoleEntities = userEntity.getUserRoles();
-		List<String> userRoles = new ArrayList<>();
+			for (UserRoleEntity userRoleEntity : userRoleEntities) {
+				UserRoleType userRole = userRoleEntity.getUserRoleType();
+				userRoles.add(userRole.toString());
+			}
 
-		for (UserRoleEntity userRoleEntity : userRoleEntities) {
-			UserRoleType userRole = userRoleEntity.getUserRoleType();
-			userRoles.add(userRole.toString());
+			userVO.setUserRoles(userRoles);
 		}
-
-		userVO.setUserRoles(userRoles);
-
 		return userVO;
 	}
 

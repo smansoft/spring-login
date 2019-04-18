@@ -24,6 +24,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +35,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import com.smansoft.sl.bl.services.api.IUserService;
 import com.smansoft.sl.bl.services.vo.RegisterVO;
 import com.smansoft.sl.bl.services.vo.UserVO;
+import com.smansoft.sl.exceptions.LoginException;
 import com.smansoft.sl.persistence.types.SexType;
 import com.smansoft.sl.tools.common.ExceptionTools;
 import com.smansoft.tools.print.api.IPrintToolStr;
@@ -69,6 +71,7 @@ public class LoginRegisterController extends BaseController {
 	 * @param response
 	 * @param modelMap
 	 * @return
+	 * @throws LoginException 
 	 */
 	//GET "/login.htm"
 	@GetMapping(value = DEF_LOGIN_HTM)
@@ -258,4 +261,17 @@ public class LoginRegisterController extends BaseController {
 		printToolStr.debug(sessionId, PrintSfx.SFX_OUT);
 		return modelAndView;
 	}
+	
+	  // Total control - setup a model and return the view name yourself. Or
+	  // consider subclassing ExceptionHandlerExceptionResolver (see below).
+///	  @ExceptionHandler(Exception.class)
+/*	
+	  public ModelAndView handleError(HttpServletRequest req, Exception ex) {
+
+		  String exStr = ExceptionTools.stackTraceToString(ex);		  
+		  
+	    ModelAndView mav = new ModelAndView();
+	    return mav;
+	  }
+*/	  	
 }

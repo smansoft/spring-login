@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.context.annotation.ScopedProxyMode;
 
 /**
@@ -16,7 +16,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
  * Path-based Bread Crumb
  *
  */
-@Service(value = SpringLoginBreadCrumb.DEF_BEAN_NAME)
+@Component(value = SpringLoginBreadCrumb.DEF_BEAN_NAME)
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class SpringLoginBreadCrumb {
 

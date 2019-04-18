@@ -49,24 +49,25 @@ public class RegisterVOToUserEntityConverter implements BaseConverter<RegisterVO
 	@Override
 	public UserEntity apply(RegisterVO registerVO) {
 		UserEntity userEntity = new UserEntity();
-		userEntity.setUserLogin(registerVO.getLogin());
-		userEntity.setEmail(registerVO.getEmail());
-		userEntity.setUserName(registerVO.getName());
-		userEntity.setUserAddress(registerVO.getAddress());
-		userEntity.setSex(SexType.valueOf(registerVO.getSex()));
-		userEntity.setPassword(registerVO.getPassword());
-		userEntity.setEnabled(registerVO.getEnabled());
+		if(registerVO != null) {
+			userEntity.setUserLogin(registerVO.getLogin());
+			userEntity.setEmail(registerVO.getEmail());
+			userEntity.setUserName(registerVO.getName());
+			userEntity.setUserAddress(registerVO.getAddress());
+			userEntity.setSex(SexType.valueOf(registerVO.getSex()));
+			userEntity.setPassword(registerVO.getPassword());
+			userEntity.setEnabled(registerVO.getEnabled());
 
-		List<UserRoleEntity> userRoleEntities = new ArrayList<>();
-		List<String> userRoles = registerVO.getUserRoles();
-		for(String authority : userRoles) {
-			UserRoleEntity userRoleEntity = new UserRoleEntity();
-			userRoleEntity.setUser(userEntity);
-			userRoleEntity.setUserRoleType(UserRoleType.valueOf(authority));
-			userRoleEntities.add(userRoleEntity);
+			List<UserRoleEntity> userRoleEntities = new ArrayList<>();
+			List<String> userRoles = registerVO.getUserRoles();
+			for(String authority : userRoles) {
+				UserRoleEntity userRoleEntity = new UserRoleEntity();
+				userRoleEntity.setUser(userEntity);
+				userRoleEntity.setUserRoleType(UserRoleType.valueOf(authority));
+				userRoleEntities.add(userRoleEntity);
+			}
+			userEntity.setUserRoles(userRoleEntities);
 		}
-		userEntity.setUserRoles(userRoleEntities);
-
 		return userEntity;
 	}
 

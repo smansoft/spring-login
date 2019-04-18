@@ -255,7 +255,7 @@ public class UsersController extends BaseController {
 	 * @return
 	 */
 	//POST "/user/deleted.htm"
-	@PostMapping(value = DEF_USER_DELETED_HTM)
+	@PostMapping(value = { DEF_DELETED_HTM, DEF_USER_DELETED_HTM })
 	public ModelAndView postUserDeletedView(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute UserVO userVO, BindingResult errors, ModelMap modelMap) {
 		String sessionId = request.getSession().getId();

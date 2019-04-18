@@ -147,7 +147,6 @@ public class ErrorController extends BaseController implements ErrorViewResolver
 		modelMap.put("errorCode", errorCode);
 		modelMap.put("errorMsg", errorMsg);
 		modelMap.put("errorMsgExt", errorMsgExt);
-		modelMap.put("remoteUser", remoteUser);
 		
 		ModelAndView errorPage = null;
 		

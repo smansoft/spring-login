@@ -1,4 +1,4 @@
-INSERT INTO users (email, enabled, password, sex, user_address, user_login, user_name, DTYPE) VALUES ('root@root.admin', 1, '$2a$10$1uDfTNmYNvPbuCcuHKpiZuaEhprwktagtGUYKULLjbwHnLx9ozQh2', 0, '', 'root', 'Root', 'UserEntity')
+INSERT INTO users (email, enabled, password, sex, user_address, user_login, user_name, DTYPE) VALUES ('root@root.admin', 1, '$2a$10$TVFdpW.MbiDCkS.B7H8Jq.abOqYf8MopHCtkOjJS0TKNGRTN8vQVi', 0, '', 'root', 'Root', 'UserEntity')
 INSERT INTO user_roles (user_role_type, user_id, DTYPE) VALUES (0, (select id from users where user_login='root'), 'UserRoleEntity')
 INSERT INTO user_roles (user_role_type, user_id, DTYPE) VALUES (1, (select id from users where user_login='root'), 'UserRoleEntity')
 INSERT INTO user_roles (user_role_type, user_id, DTYPE) VALUES (2, (select id from users where user_login='root'), 'UserRoleEntity')

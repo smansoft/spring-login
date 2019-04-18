@@ -19,7 +19,7 @@ public class SpringLoginSessionInfo {
 	/**
 	 * 
 	 */
-	public static final String DEF_BEAN_NAME = "sessionInfoBean";	
+	public static final String DEF_BEAN_NAME = "slSessionInfoBean";	
 	
 	/**
 	 * 

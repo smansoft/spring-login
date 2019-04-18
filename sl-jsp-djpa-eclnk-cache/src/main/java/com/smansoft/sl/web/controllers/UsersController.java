@@ -75,7 +75,7 @@ public class UsersController extends BaseController {
 	
 	@Autowired
 	@Qualifier(SpringLoginSessionInfo.DEF_BEAN_NAME)	
-	private SpringLoginSessionInfo sessionInfoBean;		
+	private SpringLoginSessionInfo slSessionInfoBean;		
 
 	/**
 	 * 
@@ -105,7 +105,7 @@ public class UsersController extends BaseController {
 		printToolStr.debug(sessionId, PrintSfx.SFX_IN);
 		ModelAndView modelAndView;
 		String login = null;
-		Authentication authentication = sessionInfoBean.getAuthentication();
+		Authentication authentication = slSessionInfoBean.getAuthentication();
 		if(authentication != null) {
 			login = authentication.getName();
 		} else {
@@ -152,7 +152,7 @@ public class UsersController extends BaseController {
 		} else if(loginParam != null && loginParam.length() > 0) {
 			login = loginParam;
 		} else {
-			Authentication authentication = sessionInfoBean.getAuthentication();
+			Authentication authentication = slSessionInfoBean.getAuthentication();
 			if(authentication != null) {
 				login = authentication.getName();
 			} else {

@@ -61,7 +61,7 @@ public class SpringLoginDaoAuthenticationProvider extends DaoAuthenticationProvi
 	 */
 	@Autowired
 	@Qualifier(SpringLoginSessionInfo.DEF_BEAN_NAME)	
-	private SpringLoginSessionInfo sessionInfoBean;
+	private SpringLoginSessionInfo slSessionInfoBean;
 	
 	/**
 	 * 
@@ -82,26 +82,21 @@ public class SpringLoginDaoAuthenticationProvider extends DaoAuthenticationProvi
 		try {
 			resAuthentication = super.authenticate(authentication);
 			SecurityContextHolder.getContext().setAuthentication(resAuthentication);
-			sessionInfoBean.setAuthentication(resAuthentication);
+			slSessionInfoBean.setAuthentication(resAuthentication);
 			printTool.info("authenticate user: " + resAuthentication.getName() + " is Ok...");			
 		}
 		catch(AuthenticationException ex) {
 			SecurityContextHolder.getContext().setAuthentication(null);			
-			sessionInfoBean.setAuthentication(null);
+			slSessionInfoBean.setAuthentication(null);
 			printTool.info("authenticate user: " + authentication.getName() + " Failed...");			
 			throw ex;
 		}
 		catch(Throwable ex) {
 			SecurityContextHolder.getContext().setAuthentication(null);			
-			sessionInfoBean.setAuthentication(null);
+			slSessionInfoBean.setAuthentication(null);
 			printTool.info("authenticate user: " + authentication.getName() + " Failed...");			
 			throw new BadCredentialsException(ExceptionTools.stackTraceToString(ex), ex);
 		}
-/*		
-		if(resAuthentication == null) {
-			resAuthentication = authentication;
-		}
-*/		
 		printTool.debug(PrintSfx.SFX_OUT);		
 		return resAuthentication;
 	}

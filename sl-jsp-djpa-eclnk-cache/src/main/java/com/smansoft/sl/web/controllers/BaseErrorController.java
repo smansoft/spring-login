@@ -3,6 +3,8 @@
  */
 package com.smansoft.sl.web.controllers;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.LoggerFactory;
@@ -12,16 +14,10 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.security.core.AuthenticationException;
 
 import com.smansoft.sl.config.SpringLoginSessionInfo;
-import com.smansoft.sl.exceptions.ControllersException;
-import com.smansoft.sl.exceptions.LoginException;
-import com.smansoft.sl.exceptions.ServicesException;
 import com.smansoft.tools.print.api.IPrintToolStr;
 import com.smansoft.tools.print.api.types.PrintSfx;
 import com.smansoft.tools.print.impl.PrintToolStr;
@@ -30,53 +26,16 @@ import com.smansoft.tools.print.impl.PrintToolStr;
  * @author SMan
  *
  */
-@ControllerAdvice
+@Component
 @Scope(BeanDefinition.SCOPE_SINGLETON)
-public class ExceptionController {
+public class BaseErrorController extends BaseController {
 	
 	private static final IPrintToolStr printToolStr = PrintToolStr
-			.getPrintToolInstance(LoggerFactory.getLogger(ExceptionController.class));
+			.getPrintToolInstance(LoggerFactory.getLogger(BaseErrorController.class));
 	
 	@Autowired
 	@Qualifier(SpringLoginSessionInfo.DEF_BEAN_NAME)	
-	private SpringLoginSessionInfo sessionInfoBean;		
-
-	/**
-	 * 
-	 * @param req
-	 * @param e
-	 * @return
-	 * @throws Exception
-	 */
-	@ExceptionHandler(value = { ServicesException.class, ControllersException.class })
-	public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e)  {
-		return resolveErrorView(req, HttpStatus.UNAUTHORIZED, new ModelMap());
-	}
-	
-	/**
-	 * 
-	 * @param req
-	 * @param e
-	 * @return
-	 */
-	@ExceptionHandler(value = { LoginException.class })
-	public ModelAndView defaultErrorHandler_1(HttpServletRequest req, LoginException e)  {
-		return resolveErrorView(req, HttpStatus.UNAUTHORIZED, new ModelMap());
-	}
-	
-	/**
-	 * 
-	 * @param req
-	 * @param e
-	 * @return
-	 */
-	@ExceptionHandler(value = { AuthenticationException.class })
-	public ModelAndView defaultErrorHandler_2(HttpServletRequest req, AuthenticationException e)  {
-		return resolveErrorView(req, HttpStatus.UNAUTHORIZED, new ModelMap());
-	}
-	
-	
-		
+	private SpringLoginSessionInfo slSessionInfoBean;		
 	
 	/**
 	 * 
@@ -85,13 +44,13 @@ public class ExceptionController {
 	 * @param modelMap
 	 * @return
 	 */
-	private ModelAndView resolveErrorView(HttpServletRequest request, HttpStatus status, ModelMap modelMap) {
+	public ModelAndView resolveErrorView(HttpServletRequest request, HttpStatus status, Map<String, Object> modelMap) {
 		String sessionId = request.getSession().getId();
 		printToolStr.debug(sessionId, PrintSfx.SFX_IN);
 
 		String remoteUser = null;
 		
-		Authentication authentication = sessionInfoBean.getAuthentication();
+		Authentication authentication = slSessionInfoBean.getAuthentication();
 		if(authentication != null) {
 			remoteUser = authentication.getName();
 		}
@@ -101,7 +60,8 @@ public class ExceptionController {
 		Integer errorCode = 0;
 		if (status != null) {
 			errorCode = status.value();
-		} else {
+		}
+		if(errorCode == 0) {
 			Object attribute;
 			attribute = request.getAttribute("javax.servlet.error.status_code");
 			if (attribute != null) {

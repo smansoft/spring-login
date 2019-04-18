@@ -66,11 +66,10 @@
 		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 		<compiler-source.version>1.8</compiler-source.version>
 		<compiler-target.version>1.8</compiler-target.version>
-
-		<compiler-debug-arg>-g:source,lines,vars</compiler-debug-arg>
 <!--
-		<compiler-debug-arg>-g:none</compiler-debug-arg>
+		<compiler-debug-arg>-g:source,lines,vars</compiler-debug-arg>
 -->
+		<compiler-debug-arg>-g:none</compiler-debug-arg>
 
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 		<maven-war-plugin.version>3.2.2</maven-war-plugin.version>
@@ -96,12 +95,10 @@
 
 	<modules>
 		<module>./print-tool</module>
-<!--
 		<module>./sl-jsp-hib-ehc2</module>
 		<module>./sl-jsp-jpa-hib-ehc2</module>
 		<module>./sl-jsp-djpa-jc-hib-ehc3</module>
 		<module>./sl-jsp-djpa-jc-hib-infsp</module>
--->
 		<module>./sl-jsp-djpa-eclnk-cache</module>
   	</modules>
 

@@ -12,6 +12,7 @@ project (":sl-jsp-djpa-eclnk-cache") {
         compile project(':print-tool')
 
         compile(group: 'javax.servlet',             name: 'jstl',                   	version: jstl_version)
+        compile(group: 'cglib',             		name: 'cglib',                   	version: cglib_version)
 
 	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-web', 	version: spring_boot_version) {
 			exclude(group: 	'org.hibernate.validator')
@@ -42,6 +43,7 @@ project (":sl-jsp-djpa-eclnk-cache") {
 
         compile(group: 'org.eclipse.persistence',		name: 'eclipselink',   					version: eclipselink_version) {
 			exclude(group:	'org.eclipse.persistence', 	module:'javax.persistence')
+			exclude(group:	'org.eclipse.persistence', 	module:'jakarta.persistence')
 	    }
 
         compile(group: 'org.eclipse.persistence',		name: 'javax.persistence',       		version: persistence_api_version)

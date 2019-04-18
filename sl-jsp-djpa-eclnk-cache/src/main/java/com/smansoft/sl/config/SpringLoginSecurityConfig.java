@@ -34,6 +34,10 @@ public class SpringLoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	private SpringLoginUserDetailsServiceImpl userServiceBean;
 
 	@Autowired
+	@Qualifier(SpringLoginDaoAuthenticationProvider.DEF_BEAN_NAME)
+	private SpringLoginDaoAuthenticationProvider daoAuthenticationProviderBean;
+
+	@Autowired
 	@Qualifier("passwordEncoder")
 	private BCryptPasswordEncoder passwordEncoder;
 
@@ -43,13 +47,17 @@ public class SpringLoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userServiceBean).passwordEncoder(passwordEncoder);
+		auth.authenticationProvider(daoAuthenticationProviderBean);
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity
-				.cors()
-			.and()	
+			httpSecurity
+		  		.cors()
+		  	.and()
 				.authorizeRequests()
 				.antMatchers(
 						"/",
@@ -79,6 +87,8 @@ public class SpringLoginSecurityConfig extends WebSecurityConfigurerAdapter {
 					.deleteCookies("JSESSIONID")
 					.permitAll()
 			.and()
+				.exceptionHandling()
+			.and()					
 				.csrf()
 			.and()
 				.headers()
@@ -94,9 +104,14 @@ public class SpringLoginSecurityConfig extends WebSecurityConfigurerAdapter {
 					.cacheControl();
 	}
 	
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-	}
+	/**
+	 * 
+	 * @param auth
+	 * @throws Exception
+	 */
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    }
 
 	/**
 	 * 
@@ -104,7 +119,8 @@ public class SpringLoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
+		AuthenticationManager authManager = super.authenticationManagerBean();
+		return authManager;
 	}
 
 	/**

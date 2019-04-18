@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -37,6 +38,7 @@ import com.smansoft.sl.bl.services.vo.RegisterVO;
 import com.smansoft.sl.bl.services.vo.UserVO;
 
 import com.smansoft.sl.config.SpringLoginBreadCrumb;
+import com.smansoft.sl.config.SpringLoginSessionInfo;
 import com.smansoft.sl.persistence.types.UserRoleType;
 import com.smansoft.sl.tools.common.UserRoleTools;
 import com.smansoft.sl.persistence.types.SexType;
@@ -70,11 +72,22 @@ public class UsersController extends BaseController {
 	@Autowired
 	@Qualifier("passwordEncoder")
 	private BCryptPasswordEncoder passwordEncoder;
+	
+	@Autowired
+	@Qualifier(SpringLoginSessionInfo.DEF_BEAN_NAME)	
+	private SpringLoginSessionInfo sessionInfoBean;		
 
+	/**
+	 * 
+	 * @author SMan
+	 *
+	 */
 	public static class JsonResponce {
+		/**
+		 * 
+		 */
 		public String responce;
 	}
-
 
 	/**
 	 * 
@@ -91,7 +104,13 @@ public class UsersController extends BaseController {
 		String sessionId = request.getSession().getId();
 		printToolStr.debug(sessionId, PrintSfx.SFX_IN);
 		ModelAndView modelAndView;
-		String login = SecurityContextHolder.getContext().getAuthentication().getName();
+		String login = null;
+		Authentication authentication = sessionInfoBean.getAuthentication();
+		if(authentication != null) {
+			login = authentication.getName();
+		} else {
+			login = request.getRemoteUser();			
+		}		
 		if(login == null || login.length() == 0 || "anonymousUser".equals(login)) {
 			modelAndView = new ModelAndView(UrlBasedViewResolver.REDIRECT_URL_PREFIX+DEF_LOGIN_HTM, modelMap);
 		} else {
@@ -126,7 +145,6 @@ public class UsersController extends BaseController {
 			@RequestParam (name = "login", required=false) String loginParam, ModelMap modelMap) {
 		String sessionId = request.getSession().getId();
 		printToolStr.debug(sessionId, PrintSfx.SFX_IN);
-
 		UserVO userVO = null;
 		String login = null; 
 		if(loginPath != null && loginPath.length() > 0) {
@@ -134,7 +152,12 @@ public class UsersController extends BaseController {
 		} else if(loginParam != null && loginParam.length() > 0) {
 			login = loginParam;
 		} else {
-			login = SecurityContextHolder.getContext().getAuthentication().getName();
+			Authentication authentication = sessionInfoBean.getAuthentication();
+			if(authentication != null) {
+				login = authentication.getName();
+			} else {
+				login = request.getRemoteUser();			
+			}
 		}
 		userVO = userServiceBean.getUserByUserLogin(login);
 		ModelAndView modelAndView = null;
@@ -182,6 +205,7 @@ public class UsersController extends BaseController {
 			modelMap.put("login", userVO.getLogin());
 			modelMap.put("email", userVO.getEmail());
 			if(currUserName.equals(login)) {
+				request.logout();
 				SecurityContextHolder.getContext().setAuthentication(null);				
 				modelAndView = new ModelAndView(UrlBasedViewResolver.REDIRECT_URL_PREFIX+DEF_DELETED_HTM, modelMap);
 			} else {

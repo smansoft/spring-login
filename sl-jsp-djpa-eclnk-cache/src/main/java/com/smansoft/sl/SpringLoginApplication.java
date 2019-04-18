@@ -19,11 +19,19 @@ import org.springframework.context.annotation.PropertySource;
 @SpringBootApplication
 public class SpringLoginApplication extends SpringBootServletInitializer {
 
+	/**
+	 * 
+	 */
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(SpringLoginApplication.class);
 	}
-
+	
+	/**
+	 * 
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(SpringLoginApplication.class, args);
 	}

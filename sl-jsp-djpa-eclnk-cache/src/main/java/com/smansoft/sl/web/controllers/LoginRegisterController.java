@@ -112,11 +112,8 @@ public class LoginRegisterController extends BaseController {
 		try
 		{	
 			Authentication authentication = authenticationManagerBean.authenticate(new UsernamePasswordAuthenticationToken(userVO.getLogin(), userVO.getPassword()));
-
 			boolean isAuthenticated = authentication.isAuthenticated();
 			printToolStr.debug(sessionId, "isAuthenticated = " + isAuthenticated);
-
-			SecurityContextHolder.getContext().setAuthentication(authentication);
 		}
 		catch (AuthenticationException e) {
 			printToolStr.error(ExceptionTools.stackTraceToString(e), e);
@@ -134,12 +131,14 @@ public class LoginRegisterController extends BaseController {
 	 * @param response
 	 * @param modelMap
 	 * @return
+	 * @throws Throwable 
 	 */
 	//GET "/logout.htm"
 	@GetMapping(value = DEF_LOGOUT_HTM)
-	public ModelAndView getUserLogoutView(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
+	public ModelAndView getUserLogoutView(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) throws Throwable {
 		String sessionId = request.getSession().getId();
 		printToolStr.debug(sessionId, PrintSfx.SFX_IN);
+		request.logout();
 		SecurityContextHolder.getContext().setAuthentication(null);
 		ModelAndView modelAndView = new ModelAndView(UrlBasedViewResolver.REDIRECT_URL_PREFIX+DEF_LOGIN_HTM, modelMap);
 		printToolStr.debug(sessionId, PrintSfx.SFX_OUT);
@@ -155,9 +154,10 @@ public class LoginRegisterController extends BaseController {
 	 */
 	//POST "/logout.htm"
 	@PostMapping(value = DEF_LOGOUT_HTM)
-	public ModelAndView postUserLogoutView(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
+	public ModelAndView postUserLogoutView(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) throws Throwable {
 		String sessionId = request.getSession().getId();
 		printToolStr.debug(sessionId, PrintSfx.SFX_IN);
+		request.logout();
 		SecurityContextHolder.getContext().setAuthentication(null);
 		ModelAndView modelAndView = new ModelAndView(UrlBasedViewResolver.REDIRECT_URL_PREFIX+DEF_LOGIN_HTM, modelMap);
 		printToolStr.debug(sessionId, PrintSfx.SFX_OUT);
@@ -258,5 +258,4 @@ public class LoginRegisterController extends BaseController {
 		printToolStr.debug(sessionId, PrintSfx.SFX_OUT);
 		return modelAndView;
 	}
-
 }

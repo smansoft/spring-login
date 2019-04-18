@@ -4,7 +4,8 @@
 package com.smansoft.sl.config;
 
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.resource.PathResourceResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
@@ -41,6 +43,12 @@ public class SpringLoginWebMvcConfig implements WebMvcConfigurer {
 	@SuppressWarnings("unused")
 	private static final IPrintTool printTool = PrintTool.getPrintToolInstance(LoggerFactory.getLogger(SpringLoginWebMvcConfig.class));
 
+	/**
+	 * 
+	 */
+	@Autowired
+	@Qualifier(SpringLoginInterceptor.DEF_BEAN_NAME)	
+	private HandlerInterceptorAdapter springLoginInterceptorBean;
 
 	/**
 	 * 
@@ -75,12 +83,12 @@ public class SpringLoginWebMvcConfig implements WebMvcConfigurer {
 	 */
 	@Override
 	public void addFormatters(FormatterRegistry registry) {
-		registry.addConverter(userRoleTypeToStringConverter());
-		registry.addConverter(stringToUserRoleConverter());
-		registry.addConverter(sexTypeToStringConverter());
-		registry.addConverter(stringToSexTypeConverter());
-		registry.addFormatter(userRoleTypeFormatter());
-		registry.addFormatter(sexTypeFormatter());
+		registry.addConverter(new UserRoleTypeToStringConverter());
+		registry.addConverter(new StringToUserRoleTypeConverter());
+		registry.addConverter(new SexTypeToStringConverter());
+		registry.addConverter(new StringToSexTypeConverter());
+		registry.addFormatter(new UserRoleTypeFormatter());
+		registry.addFormatter(new SexTypeFormatter());
 	}
 
 	/**
@@ -88,7 +96,7 @@ public class SpringLoginWebMvcConfig implements WebMvcConfigurer {
 	 */
 	@Override
 	public void	addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(breadCrumbInterceptor());
+		registry.addInterceptor(springLoginInterceptorBean);
 	}
 
 	/**
@@ -115,67 +123,7 @@ public class SpringLoginWebMvcConfig implements WebMvcConfigurer {
 		tilesConfigurer.setCheckRefresh(true);
 		return tilesConfigurer;
 	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	@Bean
-	public UserRoleTypeToStringConverter userRoleTypeToStringConverter() {
-		UserRoleTypeToStringConverter converter = new UserRoleTypeToStringConverter();
-		return converter;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	@Bean
-	public StringToUserRoleTypeConverter stringToUserRoleConverter() {
-		StringToUserRoleTypeConverter converter = new StringToUserRoleTypeConverter();
-		return converter;
-	}
-
-	/**
-	 *
-	 * @return
-	 */
-	@Bean
-	public SexTypeToStringConverter sexTypeToStringConverter() {
-		SexTypeToStringConverter converter = new SexTypeToStringConverter();
-		return converter;
-	}
-
-	/**
-	 *
-	 * @return
-	 */
-	@Bean
-	public StringToSexTypeConverter stringToSexTypeConverter() {
-		StringToSexTypeConverter converter = new StringToSexTypeConverter();
-		return converter;
-	}
-
-	/**
-	 *
-	 * @return
-	 */
-	@Bean
-	public UserRoleTypeFormatter userRoleTypeFormatter() {
-		UserRoleTypeFormatter formatter = new UserRoleTypeFormatter();
-		return formatter;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	@Bean
-	public SexTypeFormatter sexTypeFormatter() {
-		SexTypeFormatter formatter = new SexTypeFormatter();
-		return formatter;
-	}
-
+	
 	/**
 	 *
 	 * @return
@@ -183,15 +131,6 @@ public class SpringLoginWebMvcConfig implements WebMvcConfigurer {
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
-	};
-
-	/**
-	 * 
-	 * @return
-	 */
-	@Bean
-	public SpringLoginInterceptor breadCrumbInterceptor() {
-		return new SpringLoginInterceptor();
-	};
+	};	
 
 }

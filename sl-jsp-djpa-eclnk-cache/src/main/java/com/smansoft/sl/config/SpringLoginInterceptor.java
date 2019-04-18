@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -18,9 +21,19 @@ import com.smansoft.tools.print.impl.PrintToolStr;
  * @author SMan
  *
  */
+@Component(value = SpringLoginInterceptor.DEF_BEAN_NAME)
+@Scope(value = BeanDefinition.SCOPE_SINGLETON)
 public class SpringLoginInterceptor extends HandlerInterceptorAdapter {
 
+	/**
+	 * 
+	 */
 	private static final IPrintToolStr printToolStr = PrintToolStr.getPrintToolInstance(LoggerFactory.getLogger(SpringLoginInterceptor.class));
+	
+	/**
+	 * 
+	 */
+	public static final String DEF_BEAN_NAME = "springLoginInterceptorBean";
 
 	/**
 	 * @throws Exception 

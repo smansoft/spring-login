@@ -29,17 +29,17 @@ import com.smansoft.tools.print.impl.PrintToolStr;
  * @author SMan
  *
  */
-@Service(SpringLoginUserDetailsServiceImpl.DEF_BEAN_NAME)
-public class SpringLoginUserDetailsServiceImpl implements UserDetailsService {
+@Service(UserDetailsServiceImpl.DEF_BEAN_NAME)
+public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@SuppressWarnings("unused")
 	private static final IPrintToolStr printToolStr = PrintToolStr
-			.getPrintToolInstance(LoggerFactory.getLogger(SpringLoginUserDetailsServiceImpl.class));
+			.getPrintToolInstance(LoggerFactory.getLogger(UserDetailsServiceImpl.class));
 
 	/**
 	 * 
 	 */
-	public static final String DEF_BEAN_NAME = "userDetailsService";
+	public static final String DEF_BEAN_NAME = "userDetailsServiceBean";
 
 	/**
 	 * 

@@ -20,10 +20,19 @@ import org.springframework.context.annotation.ScopedProxyMode;
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class SpringLoginBreadCrumb {
 
+	/**
+	 * 
+	 */
 	public static final String DEF_BEAN_NAME = "springLoginBreadCrumbBean";
 
+	/**
+	 * 
+	 */
 	private List<String> pathBreadCrumb = new LinkedList<>();
 
+	/**
+	 * 
+	 */
 	private int popCount = 1;
 
 	/**

@@ -15,8 +15,13 @@ import com.smansoft.sl.web.controllers.BaseController;
  * @author SMan
  *
  */
-@Component("errorPageRegistrar")
+@Component(SpringLoginErrorPageRegistrar.DEF_BEAN_NAME)
 public class SpringLoginErrorPageRegistrar implements ErrorPageRegistrar {
+	
+	/**
+	 * 
+	 */
+	public static final String DEF_BEAN_NAME = "springLoginErrorPageRegistrarCrumbBean";	
 
 	/**
 	 * 

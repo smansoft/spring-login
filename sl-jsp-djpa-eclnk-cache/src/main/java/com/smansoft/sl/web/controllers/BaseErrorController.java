@@ -35,7 +35,7 @@ public class BaseErrorController extends BaseController {
 	
 	@Autowired
 	@Qualifier(SpringLoginSessionInfo.DEF_BEAN_NAME)	
-	private SpringLoginSessionInfo slSessionInfoBean;		
+	private SpringLoginSessionInfo springLoginSessionInfoBean;		
 	
 	/**
 	 * 
@@ -50,7 +50,7 @@ public class BaseErrorController extends BaseController {
 
 		String remoteUser = null;
 		
-		Authentication authentication = slSessionInfoBean.getAuthentication();
+		Authentication authentication = springLoginSessionInfoBean.getAuthentication();
 		if(authentication != null) {
 			remoteUser = authentication.getName();
 		}

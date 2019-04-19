@@ -6,8 +6,10 @@ package com.smansoft.sl.config;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.core.Ordered;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -53,6 +55,42 @@ public class SpringLoginWebMvcConfig implements WebMvcConfigurer {
 	/**
 	 * 
 	 */
+	@Autowired
+	private UserRoleTypeToStringConverter userRoleTypeToStringConverter;
+	
+	/**
+	 * 
+	 */
+	@Autowired
+	private StringToUserRoleTypeConverter stringToUserRoleConverter;
+	
+	/**
+	 * 
+	 */
+	@Autowired
+	private SexTypeToStringConverter sexTypeToStringConverter;
+	
+	/**
+	 * 
+	 */
+	@Autowired
+	private StringToSexTypeConverter stringToSexTypeConverter;
+
+	/**
+	 * 
+	 */
+	@Autowired
+	private UserRoleTypeFormatter userRoleTypeFormatter;
+	
+	/**
+	 * 
+	 */
+	@Autowired
+	private SexTypeFormatter sexTypeFormatter;	
+
+	/**
+	 * 
+	 */
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		TilesViewResolver viewResolver = new TilesViewResolver();
@@ -83,12 +121,12 @@ public class SpringLoginWebMvcConfig implements WebMvcConfigurer {
 	 */
 	@Override
 	public void addFormatters(FormatterRegistry registry) {
-		registry.addConverter(new UserRoleTypeToStringConverter());
-		registry.addConverter(new StringToUserRoleTypeConverter());
-		registry.addConverter(new SexTypeToStringConverter());
-		registry.addConverter(new StringToSexTypeConverter());
-		registry.addFormatter(new UserRoleTypeFormatter());
-		registry.addFormatter(new SexTypeFormatter());
+		registry.addConverter(userRoleTypeToStringConverter);
+		registry.addConverter(stringToUserRoleConverter);
+		registry.addConverter(sexTypeToStringConverter);
+		registry.addConverter(stringToSexTypeConverter);
+		registry.addFormatter(userRoleTypeFormatter);
+		registry.addFormatter(sexTypeFormatter);
 	}
 
 	/**
@@ -117,6 +155,7 @@ public class SpringLoginWebMvcConfig implements WebMvcConfigurer {
 	 * @return
 	 */
 	@Bean
+	@Scope(BeanDefinition.SCOPE_SINGLETON)
 	public TilesConfigurer tilesConfigurer(){
 		TilesConfigurer tilesConfigurer = new TilesConfigurer();
 		tilesConfigurer.setDefinitions(new String[] {"/WEB-INF/tiles/sl-tiles.xml"});
@@ -129,8 +168,75 @@ public class SpringLoginWebMvcConfig implements WebMvcConfigurer {
 	 * @return
 	 */
 	@Bean
+	@Scope(BeanDefinition.SCOPE_SINGLETON)
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
-	};	
+	};
+	
+	/**
+	 * 
+	 * @return
+	 */
+	@Bean
+	@Scope(BeanDefinition.SCOPE_SINGLETON)
+	public UserRoleTypeToStringConverter userRoleTypeToStringConverter() {
+		UserRoleTypeToStringConverter converter = new UserRoleTypeToStringConverter();
+		return converter;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	@Bean
+	@Scope(BeanDefinition.SCOPE_SINGLETON)
+	public StringToUserRoleTypeConverter stringToUserRoleConverter() {
+		StringToUserRoleTypeConverter converter = new StringToUserRoleTypeConverter();
+		return converter;
+	}
+
+	/**
+	 *
+	 * @return
+	 */
+	@Bean
+	@Scope(BeanDefinition.SCOPE_SINGLETON)
+	public SexTypeToStringConverter sexTypeToStringConverter() {
+		SexTypeToStringConverter converter = new SexTypeToStringConverter();
+		return converter;
+	}
+
+	/**
+	 *
+	 * @return
+	 */
+	@Bean
+	@Scope(BeanDefinition.SCOPE_SINGLETON)
+	public StringToSexTypeConverter stringToSexTypeConverter() {
+		StringToSexTypeConverter converter = new StringToSexTypeConverter();
+		return converter;
+	}
+
+	/**
+	 *
+	 * @return
+	 */
+	@Bean
+	@Scope(BeanDefinition.SCOPE_SINGLETON)
+	public UserRoleTypeFormatter userRoleTypeFormatter() {
+		UserRoleTypeFormatter formatter = new UserRoleTypeFormatter();
+		return formatter;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	@Bean
+	@Scope(BeanDefinition.SCOPE_SINGLETON)
+	public SexTypeFormatter sexTypeFormatter() {
+		SexTypeFormatter formatter = new SexTypeFormatter();
+		return formatter;
+	}
 
 }

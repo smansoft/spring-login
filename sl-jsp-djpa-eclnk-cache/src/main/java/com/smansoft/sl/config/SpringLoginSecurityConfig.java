@@ -7,8 +7,10 @@ import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -28,6 +30,7 @@ import com.smansoft.sl.bl.services.impl.UserDetailsServiceImpl;
  *
  */
 @Configuration
+@Scope(BeanDefinition.SCOPE_SINGLETON)
 @EnableWebSecurity
 public class SpringLoginSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -119,6 +122,7 @@ public class SpringLoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * 
 	 */
 	@Bean
+	@Scope(BeanDefinition.SCOPE_SINGLETON)
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		AuthenticationManager authManager = super.authenticationManagerBean();
@@ -130,6 +134,7 @@ public class SpringLoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * @return
 	 */
 	@Bean
+	@Scope(BeanDefinition.SCOPE_SINGLETON)
 	CorsConfigurationSource corsConfigurationSource() {
 
 		CorsConfiguration configuration = new CorsConfiguration();

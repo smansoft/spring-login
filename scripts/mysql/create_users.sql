@@ -14,6 +14,9 @@ grant all privileges on spring_login_4.* to 'sl_user_4'@'localhost';
 create user 'sl_user_5'@'localhost' identified by 'sl_password_5';
 grant all privileges on spring_login_5.* to 'sl_user_5'@'localhost';
 
+create user 'sl_user_6'@'localhost' identified by 'sl_password_6';
+grant all privileges on spring_login_6.* to 'sl_user_6'@'localhost';
+
 create user 'sl_user_test'@'localhost' identified by 'sl_password_test';
 grant all privileges on spring_login_test.* to 'sl_user_test'@'localhost';
 

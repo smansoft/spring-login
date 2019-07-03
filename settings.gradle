@@ -12,6 +12,7 @@ include ':sl-jsp-djpa-jc-hib-infsp'
 
 include ':sl-jsp-djpa-eclnk-cache'
 
+include ':sl-jsp-djpa-jc-hib-ehc3-ssl'
 
 project(':print-tool').projectDir = new File("$rootDir/print-tool")
 
@@ -22,3 +23,5 @@ project(':sl-jsp-djpa-jc-hib-ehc3').projectDir = new File("$rootDir/sl-jsp-djpa-
 project(':sl-jsp-djpa-jc-hib-infsp').projectDir = new File("$rootDir/sl-jsp-djpa-jc-hib-infsp")
 
 project(':sl-jsp-djpa-eclnk-cache').projectDir = new File("$rootDir/sl-jsp-djpa-eclnk-cache")
+
+project(':sl-jsp-djpa-jc-hib-ehc3-ssl').projectDir = new File("$rootDir/sl-jsp-djpa-jc-hib-ehc3-ssl")

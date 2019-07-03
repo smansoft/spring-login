@@ -100,6 +100,7 @@
 		<module>./sl-jsp-djpa-jc-hib-ehc3</module>
 		<module>./sl-jsp-djpa-jc-hib-infsp</module>
 		<module>./sl-jsp-djpa-eclnk-cache</module>
+		<module>./sl-jsp-djpa-jc-hib-ehc3-ssl</module>
   	</modules>
 
 </project>

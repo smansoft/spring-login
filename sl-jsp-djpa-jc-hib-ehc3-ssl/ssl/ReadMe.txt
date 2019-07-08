@@ -19,8 +19,8 @@ Overview
         - generation of CA RSA key and Self-Signed CA RSA Certificate;
         - generation of SSL RSA private key, RSA public key and sign RSA public key, using RSA CA key 
             and generation of X.509 certificate of server (server certificate);
-        - usage (by default) of Elliptic Curves (ECDSA-WITH-SHA256) prime256v1 (NIST P-256, secp256r1) or
-            RSA2048-WITH-SHA256 for signing of public keys;
+        - usage (by default) of Elliptic Curves (ECDSA-WITH-SHA256) prime256v1 (NIST P-256, secp256r1) or RSA
+            (RSA2048-WITH-SHA256) for signing of public keys;
 
 Usage
 --------

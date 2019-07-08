@@ -81,9 +81,8 @@ Usage
                             
                             01.init.sh                  - bash script, that clears all dirs and removes all keys and certificates;
                             02.srv.req.sh               - bash script, that Server key pair and generates Server Certificate Request;
-                            03.srv.imp.sh               - bash script, that exports Server key, signed certificate and CA certificates to
-                                                            PKCS12 (.p12) file;
-                                                            PKCS12 (.p12) file;
+                            03.srv.imp.sh               - bash script, that exports Server key, signed certificate and CA certificates
+                                                            to PKCS12 (.p12) file;
         
         ssl.ecdsa.sign
         ssl.rsa.sign    - suite of scripts (using ECDSA/RSA), that:

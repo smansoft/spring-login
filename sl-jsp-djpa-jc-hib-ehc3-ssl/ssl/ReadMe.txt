@@ -152,7 +152,7 @@ Usage
         Files openssl.xxx.srv.cnf contain section:
             [alt_names]
             DNS.1=localhost
-        You can change domain name to some other.
+        You can change domain name to some other or add some new domain name(s).
         
         In practice, you should generate Server key pair, generate Certificate request, sign Server certificate request,
             using official Authoirised Centres and then import results to srv.sl.p12.

@@ -39,11 +39,11 @@ Usage
         ssl.rsa.ca      - suite of scripts (using ECDSA/RSA), that:
                             - generates CA keys (private and public);
                             - generates CA Certificate Request;
-                            - self-signing of CA Certificate Request;
+                            - self-signs of CA Certificate Request;
                             - generates Server keys (private and public);
                             - generates Server Certificate Request (for signing, by CA key);
-                            - signing of Server Certificate Request, by CA key;
-                            - import of signing of Server Certificate Request, by CA key;
+                            - signs of Server Certificate Request, by CA key;
+                            - imports of signing of Server Certificate Request, by CA key;
                         
                         - files/dirs:
                             cnfs/openssl.ca.int.cnf     - configuration file, that is used for generation of CA key pair and  
@@ -68,7 +68,7 @@ Usage
         ssl.rsa.req     - suite of scripts (using ECDSA/RSA), that:
                             - generates Server keys (private and public);
                             - generates Server Certificate Request (for signing, by CA key);
-                            - signing of Server Certificate Request, by CA key;
+                            - signs of Server Certificate Request, by CA key;
                             
                         - files/dirs:
                             cnfs/openssl.srv.cnf        - configuration file, that is used for generation of Server key pair and generation 
@@ -88,8 +88,8 @@ Usage
         ssl.rsa.sign    - suite of scripts (using ECDSA/RSA), that:
                             - generates CA keys (private and public);
                             - generates CA Certificate Request;
-                            - self-signing of CA Certificate Request;
-                            - signing of Server Certificate Request, by CA key;
+                            - self-signes of CA Certificate Request;
+                            - signes of Server Certificate Request, by CA key;
                             
                         - files/dirs:
                             cnfs/openssl.ca.int.cnf     - configuration file, that is used for generation of CA key pair and  

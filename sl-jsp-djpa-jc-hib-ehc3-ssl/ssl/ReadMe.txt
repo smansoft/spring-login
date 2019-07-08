@@ -150,8 +150,8 @@ Usage
         in Web applications.
         
         Files openssl.xxx.srv.cnf contain section:
-                [alt_names]
-                DNS.1=localhost
+            [alt_names]
+            DNS.1=localhost
         You can change domain name to some other.
         
         In practice, you should generate Server key pair, generate Certificate request, sign Server certificate request,

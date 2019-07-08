@@ -38,6 +38,15 @@ This Suite contains follow demo/template projects:
 		JCache
 		Hibernate
 		Ehcache3
+
+	- sl-jsp-djpa-jc-hib-ehc3-ssl (Spring Login with HTTPS)
+		Spring Boot
+		JSP
+		Spring MVC + Spring-Security
+		DAO (Spring Data JPA)
+		JCache
+		Hibernate
+		Ehcache3
 	
 	- sl-jsp-djpa-jc-hib-infsp (Spring Login)
 		Spring Boot
@@ -59,10 +68,16 @@ This Suite contains follow demo/template projects:
 
 These projects can be used as templates for creation of new Java Spring Framework projects.
 
-Project sl-jsp-djpa-eclnk-cache contains more advanced gui, more roles and more advanced
-implementation of auth (please, see screenshots here: doc/screenshots).
-Also sl-jsp-djpa-eclnk-cache creates default Root Admin (login: 'root' passw: 'root').
+Projects sl-jsp-djpa-eclnk-cache and sl-jsp-djpa-jc-hib-ehc3-ssl
+contain more advanced gui, more roles and more advanced implementation 
+of auth (please, see screenshots here: doc/screenshots).
+
+Also sl-jsp-djpa-eclnk-cache and sl-jsp-djpa-jc-hib-ehc3-ssl
+create default Root Admin (login: 'root' passw: 'root').
 Root Admin cann't be removed, but can be updated (for ex. passw value).
+
+Project sl-jsp-djpa-jc-hib-ehc3-ssl supports HTTPS and contains scripts (in /ssl) for generation
+SSL keys and certificates.
 
 You can launch built applications as using 
 	java -jar sl-xxx.war

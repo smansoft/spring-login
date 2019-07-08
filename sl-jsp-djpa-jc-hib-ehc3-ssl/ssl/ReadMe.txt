@@ -31,7 +31,7 @@ Usage
         .csr        - certificate request (for signing) of public key;
         .cert       - signed public key (ECDSA or RSA) (certificate) with additional text info in PEM format;
         .pem        - signed public key (ECDSA or RSA) (certificate) in PEM format;
-        .chain.pem  - file, that contains list of authorised certificate(s), including root CA; 
+        .chain.pem  - file, that contains list of authorized certificate(s), including root CA; 
         .p12        - archive (in PKCS12 format), that contains private key, public key (certificate), and authorised certificate(s);
 
     Suite of scripts contains follow directories:
@@ -155,7 +155,7 @@ Usage
         You can change domain name to some other or add some new domain name(s).
         
         In practice, you should generate Server key pair, generate Certificate request, sign Server certificate request,
-            using official Authoirised Centres and then import results to srv.sl.p12.
+            using official Authorized Centers and then import results to srv.sl.p12.
 
 Please, send your notes and questions to
     mailto:info@smansoft.com

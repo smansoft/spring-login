@@ -1,0 +1,29 @@
+-----------------------------------------------------------------------------------------------
+
+Copyright
+
+SSL Web scripts ® Copyright © 2018-2019 by SManSoft
+All rights reserved.
+
+Disclaimer of Warranty
+THIS SOFTWARE AND THE ACCOMPANYING FILES ARE PRESENTED "AS IS" AND WITHOUT WARRANTIES
+AS TO PERFORMANCE OF MERCHANTABILITY OR ANY OTHER WARRANTIES WHETHER EXPRESSED OR IMPLIED.
+Because of the various hardware and software environments into which file_exchanger tool
+may be put, NO WARRANTY OF FITNESS FOR A PARTICULAR PURPOSE IS OFFERED.
+
+Good data processing procedure dictates that any program be thoroughly tested with non-critical
+data before relying on it. The user must assume the entire risk of using the program.
+
+ANY LIABILITY OF THE AUTHOR WILL BE LIMITED EXCLUSIVELY TO PRODUCT REPLACEMENT.
+
+Terms of Use
+You may not distribute SSL Web scripts without express written permission of SManSoft.
+
+Licensing
+If you are interested in redistributing SSL Web scripts,please send e-mail to
+    mailto:info@smansoft.com
+with details.
+
+-----------------------------------------------------------------------------------------------
+End of document
+-----------------       

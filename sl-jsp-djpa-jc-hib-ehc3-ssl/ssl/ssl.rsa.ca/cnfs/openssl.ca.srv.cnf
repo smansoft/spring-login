@@ -1,0 +1,75 @@
+
+RANDFILE               = $ENV::HOME/.rnd
+
+####################################################################
+[ ca ]
+default_ca	= CA_default		# The default ca section
+
+####################################################################
+[ CA_default ]
+dir		= .
+
+certs		= $dir/certs		# Where the issued certs are kept
+crl_dir		= $dir/crl		# Where the issued crl are kept
+database	= $dir/index.txt	# database index file.
+					# several ctificates with same subject.
+new_certs_dir	= $dir/new_certs	# default place for new certs.
+
+certificate	= $dir/cacert.pem	# The CA certificate
+serial		= $dir/serial		# The current serial number
+crlnumber	= $dir/crlnumber	# the current crl number
+					# must be commented out to leave a V1 CRL
+crl		= $dir/crl.pem		# The current CRL
+private_key	= $dir/private/cakey.pem# The private key
+RANDFILE	= $dir/private/.rand	# private random number file
+
+x509_extensions	= v3_ca
+
+name_opt	= ca_default		# Subject Name options
+cert_opt	= ca_default		# Certificate field options
+
+default_days	= 1825			# how long to certify for
+default_crl_days= 30			# how long before next CRL
+default_md	= sha256		# which md to use.
+preserve	= no			# keep passed DN ordering
+
+unique_subject  = no
+
+policy		= policy_anything
+
+####################################################################
+[ v3_ca ]
+basicConstraints        = critical, CA:FALSE
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid,issuer
+keyUsage                = critical, cRLSign, digitalSignature, keyCertSign, keyAgreement
+extendedKeyUsage	= critical, serverAuth, clientAuth
+subjectAltName		= critical, @alt_names
+
+####################################################################
+[ policy_match ]
+countryName		= match
+stateOrProvinceName	= match
+localityName            = match
+
+organizationName	= match
+organizationalUnitName	= match
+commonName		= supplied
+emailAddress		= optional
+
+####################################################################
+[ policy_anything ]
+countryName             = optional
+stateOrProvinceName     = optional
+localityName            = optional
+
+organizationName        = optional
+organizationalUnitName  = optional
+commonName              = supplied
+emailAddress            = optional
+
+####################################################################
+[alt_names]
+DNS.1=localhost
+
+####################################################################

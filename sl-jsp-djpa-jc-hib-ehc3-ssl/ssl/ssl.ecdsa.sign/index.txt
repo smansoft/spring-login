@@ -1,0 +1,2 @@
+V	240706074549Z		01	unknown	/C=UA/ST=Kharkov/L=Kharkov/O=SManSoft/OU=SManSoft.SpringLogin/CN=SManSoft.SpringLogin.CA/emailAddress=smansoft@gmail.com
+V	240706074616Z		02	unknown	/C=UA/ST=Kharkov/L=Kharkov/O=SManSoft/OU=SManSoft.SpringLogin/CN=SManSoft.SpringLogin.Server/emailAddress=smansoft@gmail.com

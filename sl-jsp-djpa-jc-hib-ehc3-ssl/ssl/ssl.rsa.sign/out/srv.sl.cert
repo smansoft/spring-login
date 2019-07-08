@@ -1,0 +1,89 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 2 (0x2)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=UA, ST=Kharkov, L=Kharkov, O=SManSoft, OU=SManSoft.SpringLogin, CN=SManSoft.SpringLogin.CA/emailAddress=smansoft@gmail.com
+        Validity
+            Not Before: Jul  8 07:47:08 2019 GMT
+            Not After : Jul  6 07:47:08 2024 GMT
+        Subject: C=UA, ST=Kharkov, L=Kharkov, O=SManSoft, OU=SManSoft.SpringLogin, CN=SManSoft.SpringLogin.Server/emailAddress=smansoft@gmail.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:eb:ef:27:ce:bb:8d:6d:22:fe:0f:a5:7b:54:af:
+                    63:6f:4c:f5:29:97:85:c4:6c:cd:02:a1:46:db:c2:
+                    b7:1e:62:1d:71:54:82:23:d8:15:98:ba:84:92:f0:
+                    ad:4f:14:20:0e:4d:94:b5:58:59:09:bf:bc:94:a1:
+                    96:13:74:a8:33:8b:68:3e:2e:5f:db:7f:0b:b7:f5:
+                    d3:96:8c:f6:95:a2:3c:c3:8b:96:42:d0:dd:92:75:
+                    87:67:23:25:ba:1b:4a:65:24:fc:10:1f:e7:c1:64:
+                    8e:68:67:fc:ec:74:f2:2e:c8:43:35:46:e0:5a:c0:
+                    3d:59:2a:9e:d8:21:a6:36:a2:e6:fd:c4:3c:0f:b2:
+                    6e:f5:5e:f7:24:dd:11:2b:96:b5:8a:78:17:2b:6f:
+                    63:26:31:fd:0a:70:52:62:de:67:20:40:1b:ab:26:
+                    11:dc:0e:3e:38:8c:f2:37:d8:4d:be:80:a3:69:84:
+                    61:32:72:5e:07:71:52:09:d8:b9:71:6c:27:bb:e8:
+                    03:1c:36:da:39:81:54:2f:d7:00:e9:88:13:a0:0a:
+                    b5:89:33:e0:83:97:9e:53:89:8c:f9:e7:4f:1b:0f:
+                    d9:10:04:da:a8:ba:94:fb:ea:21:0c:e9:5e:61:45:
+                    6b:b4:46:42:b2:57:7f:84:6d:d8:2b:80:16:c2:95:
+                    ae:cd
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            X509v3 Subject Key Identifier: 
+                71:78:99:22:07:3F:2E:D0:36:A9:0F:08:06:DB:CF:12:11:C0:58:3E
+            X509v3 Authority Key Identifier: 
+                keyid:25:82:5E:24:97:E6:60:43:B7:49:4A:3C:B0:D6:57:E1:22:02:45:E5
+
+            X509v3 Key Usage: critical
+                Digital Signature, Key Agreement, Certificate Sign, CRL Sign
+            X509v3 Extended Key Usage: critical
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 Subject Alternative Name: critical
+                DNS:localhost
+    Signature Algorithm: sha256WithRSAEncryption
+         87:75:31:4b:2b:6d:af:2a:59:d4:e8:57:f4:60:46:35:bc:05:
+         76:b2:4a:ad:06:70:bf:45:af:b8:39:0a:b9:9d:3e:21:05:48:
+         1c:64:7a:b4:9f:da:e4:47:10:d7:c6:85:dc:98:98:9c:db:49:
+         26:de:3a:44:13:f8:7b:ac:7b:55:e4:77:40:95:56:99:70:1d:
+         d3:f3:63:63:be:b2:8a:b2:0a:bb:1a:fa:7e:6a:99:3c:54:6d:
+         c8:a5:70:ab:33:d5:ab:15:6a:57:02:a5:61:6e:bf:24:65:89:
+         f7:a1:e1:e4:f1:cd:d0:38:ab:a4:df:da:72:29:d6:7c:19:e2:
+         98:5d:d2:49:4a:1a:42:bb:ea:48:c7:7a:d7:ef:8d:c9:98:33:
+         0d:3f:1b:3d:31:27:cf:e5:dc:40:73:36:d4:46:35:59:31:88:
+         89:5a:7d:fe:e4:44:46:04:72:95:23:bf:cd:6b:d1:58:92:85:
+         1a:c8:78:c1:4f:4c:32:56:dc:2a:b7:05:85:98:0a:b4:b9:83:
+         8f:27:a6:66:02:e9:b5:6e:3f:2c:6a:f2:ef:e3:8d:02:63:e7:
+         6f:e2:f1:eb:38:87:27:7a:d7:0a:ee:8d:79:ea:71:f7:2f:bf:
+         39:c9:50:04:08:18:3f:c6:91:8d:bd:02:22:73:03:f0:10:a9:
+         37:c3:82:06
+-----BEGIN CERTIFICATE-----
+MIIEbjCCA1agAwIBAgIBAjANBgkqhkiG9w0BAQsFADCBqDELMAkGA1UEBhMCVUEx
+EDAOBgNVBAgMB0toYXJrb3YxEDAOBgNVBAcMB0toYXJrb3YxETAPBgNVBAoMCFNN
+YW5Tb2Z0MR0wGwYDVQQLDBRTTWFuU29mdC5TcHJpbmdMb2dpbjEgMB4GA1UEAwwX
+U01hblNvZnQuU3ByaW5nTG9naW4uQ0ExITAfBgkqhkiG9w0BCQEWEnNtYW5zb2Z0
+QGdtYWlsLmNvbTAeFw0xOTA3MDgwNzQ3MDhaFw0yNDA3MDYwNzQ3MDhaMIGsMQsw
+CQYDVQQGEwJVQTEQMA4GA1UECAwHS2hhcmtvdjEQMA4GA1UEBwwHS2hhcmtvdjER
+MA8GA1UECgwIU01hblNvZnQxHTAbBgNVBAsMFFNNYW5Tb2Z0LlNwcmluZ0xvZ2lu
+MSQwIgYDVQQDDBtTTWFuU29mdC5TcHJpbmdMb2dpbi5TZXJ2ZXIxITAfBgkqhkiG
+9w0BCQEWEnNtYW5zb2Z0QGdtYWlsLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEP
+ADCCAQoCggEBAOvvJ867jW0i/g+le1SvY29M9SmXhcRszQKhRtvCtx5iHXFUgiPY
+FZi6hJLwrU8UIA5NlLVYWQm/vJShlhN0qDOLaD4uX9t/C7f105aM9pWiPMOLlkLQ
+3ZJ1h2cjJbobSmUk/BAf58Fkjmhn/Ox08i7IQzVG4FrAPVkqntghpjai5v3EPA+y
+bvVe9yTdESuWtYp4FytvYyYx/QpwUmLeZyBAG6smEdwOPjiM8jfYTb6Ao2mEYTJy
+XgdxUgnYuXFsJ7voAxw22jmBVC/XAOmIE6AKtYkz4IOXnlOJjPnnTxsP2RAE2qi6
+lPvqIQzpXmFFa7RGQrJXf4Rt2CuAFsKVrs0CAwEAAaOBnDCBmTAMBgNVHRMBAf8E
+AjAAMB0GA1UdDgQWBBRxeJkiBz8u0DapDwgG288SEcBYPjAfBgNVHSMEGDAWgBQl
+gl4kl+ZgQ7dJSjyw1lfhIgJF5TAOBgNVHQ8BAf8EBAMCAY4wIAYDVR0lAQH/BBYw
+FAYIKwYBBQUHAwEGCCsGAQUFBwMCMBcGA1UdEQEB/wQNMAuCCWxvY2FsaG9zdDAN
+BgkqhkiG9w0BAQsFAAOCAQEAh3UxSyttrypZ1OhX9GBGNbwFdrJKrQZwv0WvuDkK
+uZ0+IQVIHGR6tJ/a5EcQ18aF3JiYnNtJJt46RBP4e6x7VeR3QJVWmXAd0/NjY76y
+irIKuxr6fmqZPFRtyKVwqzPVqxVqVwKlYW6/JGWJ96Hh5PHN0DirpN/acinWfBni
+mF3SSUoaQrvqSMd61++NyZgzDT8bPTEnz+XcQHM21EY1WTGIiVp9/uRERgRylSO/
+zWvRWJKFGsh4wU9MMlbcKrcFhZgKtLmDjyemZgLptW4/LGry7+ONAmPnb+Lx6ziH
+J3rXCu6Neepx9y+/OclQBAgYP8aRjb0CInMD8BCpN8OCBg==
+-----END CERTIFICATE-----

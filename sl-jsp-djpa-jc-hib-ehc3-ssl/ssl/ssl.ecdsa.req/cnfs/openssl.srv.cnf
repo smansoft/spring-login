@@ -1,0 +1,39 @@
+
+RANDFILE               = $ENV::HOME/.rnd
+
+####################################################################
+[ req ]
+default_bits           = 2048
+default_keyfile        = srv.ca-key.pem
+distinguished_name     = req_distinguished_name
+attributes             = req_attributes
+prompt                 = no
+# how long to certify
+default_days                    = 365
+# how long before next CRL
+default_crl_days                = 30
+# use public key default MD
+default_md                      = sha256
+
+####################################################################
+[ req_distinguished_name ]
+C                      = UA
+ST                     = Kharkov
+L                      = Kharkov
+O                      = SManSoft
+OU                     = SManSoft.SpringLogin
+CN		       = SManSoft.SpringLogin.Server
+emailAddress           = smansoft@gmail.com
+
+####################################################################
+[ req_attributes ]
+
+####################################################################
+[ crl_ext ]
+authorityKeyIdentifier=keyid,issuer
+
+####################################################################
+[ proxy_cert_ext ]
+basicConstraints=CA:TRUE
+
+####################################################################

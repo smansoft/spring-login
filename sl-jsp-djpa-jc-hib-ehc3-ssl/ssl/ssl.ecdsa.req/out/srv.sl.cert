@@ -1,0 +1,58 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 2 (0x2)
+        Signature Algorithm: ecdsa-with-SHA256
+        Issuer: C=UA, ST=Kharkov, L=Kharkov, O=SManSoft, OU=SManSoft.SpringLogin, CN=SManSoft.SpringLogin.CA/emailAddress=smansoft@gmail.com
+        Validity
+            Not Before: Jul  8 07:46:16 2019 GMT
+            Not After : Jul  6 07:46:16 2024 GMT
+        Subject: C=UA, ST=Kharkov, L=Kharkov, O=SManSoft, OU=SManSoft.SpringLogin, CN=SManSoft.SpringLogin.Server/emailAddress=smansoft@gmail.com
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                pub:
+                    04:6a:8c:af:bd:ed:66:e9:0f:21:0d:d8:f6:48:a6:
+                    51:4f:94:81:02:57:e4:9a:a9:55:78:6e:73:b3:a4:
+                    60:bc:c4:03:fb:e4:6c:c2:05:b3:c4:b2:fd:74:cc:
+                    3d:93:a3:8a:90:e2:04:fd:0d:ca:ae:dd:16:27:47:
+                    0b:d6:ad:67:69
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+        X509v3 extensions:
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            X509v3 Subject Key Identifier: 
+                AE:6E:84:F1:0B:D1:3D:23:D8:74:68:D4:40:A0:86:0C:85:0E:A8:95
+            X509v3 Authority Key Identifier: 
+                keyid:34:87:C4:4D:83:2D:60:CE:A2:A1:3A:30:04:27:A6:FE:A9:64:CF:C2
+
+            X509v3 Key Usage: critical
+                Digital Signature, Key Agreement, Certificate Sign, CRL Sign
+            X509v3 Extended Key Usage: critical
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 Subject Alternative Name: critical
+                DNS:localhost
+    Signature Algorithm: ecdsa-with-SHA256
+         30:44:02:20:26:92:38:91:6a:a9:bd:df:15:5b:46:c8:38:4f:
+         84:43:e1:ca:6a:86:20:ca:d3:2e:84:87:35:0d:e3:66:fd:bb:
+         02:20:1a:34:46:d4:49:7c:22:5d:ea:2a:ee:6c:13:2f:b9:d7:
+         43:30:91:07:94:ce:15:6e:5f:e1:d8:7f:53:f1:7a:2b
+-----BEGIN CERTIFICATE-----
+MIIC4TCCAoigAwIBAgIBAjAKBggqhkjOPQQDAjCBqDELMAkGA1UEBhMCVUExEDAO
+BgNVBAgMB0toYXJrb3YxEDAOBgNVBAcMB0toYXJrb3YxETAPBgNVBAoMCFNNYW5T
+b2Z0MR0wGwYDVQQLDBRTTWFuU29mdC5TcHJpbmdMb2dpbjEgMB4GA1UEAwwXU01h
+blNvZnQuU3ByaW5nTG9naW4uQ0ExITAfBgkqhkiG9w0BCQEWEnNtYW5zb2Z0QGdt
+YWlsLmNvbTAeFw0xOTA3MDgwNzQ2MTZaFw0yNDA3MDYwNzQ2MTZaMIGsMQswCQYD
+VQQGEwJVQTEQMA4GA1UECAwHS2hhcmtvdjEQMA4GA1UEBwwHS2hhcmtvdjERMA8G
+A1UECgwIU01hblNvZnQxHTAbBgNVBAsMFFNNYW5Tb2Z0LlNwcmluZ0xvZ2luMSQw
+IgYDVQQDDBtTTWFuU29mdC5TcHJpbmdMb2dpbi5TZXJ2ZXIxITAfBgkqhkiG9w0B
+CQEWEnNtYW5zb2Z0QGdtYWlsLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IA
+BGqMr73tZukPIQ3Y9kimUU+UgQJX5JqpVXhuc7OkYLzEA/vkbMIFs8Sy/XTMPZOj
+ipDiBP0Nyq7dFidHC9atZ2mjgZwwgZkwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU
+rm6E8QvRPSPYdGjUQKCGDIUOqJUwHwYDVR0jBBgwFoAUNIfETYMtYM6ioTowBCem
+/qlkz8IwDgYDVR0PAQH/BAQDAgGOMCAGA1UdJQEB/wQWMBQGCCsGAQUFBwMBBggr
+BgEFBQcDAjAXBgNVHREBAf8EDTALgglsb2NhbGhvc3QwCgYIKoZIzj0EAwIDRwAw
+RAIgJpI4kWqpvd8VW0bIOE+EQ+HKaoYgytMuhIc1DeNm/bsCIBo0RtRJfCJd6iru
+bBMvuddDMJEHlM4Vbl/h2H9T8Xor
+-----END CERTIFICATE-----

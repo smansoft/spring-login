@@ -3,14 +3,10 @@
  */
 package com.smansoft.sl.config;
 
-import org.apache.catalina.Context;
-import org.apache.tomcat.util.scan.StandardJarScanner;
-
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -240,21 +236,6 @@ public class SpringLoginWebMvcConfig implements WebMvcConfigurer {
 	public SexTypeFormatter sexTypeFormatter() {
 		SexTypeFormatter formatter = new SexTypeFormatter();
 		return formatter;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	@Bean
-	@Scope(BeanDefinition.SCOPE_SINGLETON)
-	public TomcatServletWebServerFactory tomcatFactory() {
-		return new TomcatServletWebServerFactory() {
-			@Override
-			protected void postProcessContext(Context context) {
-				((StandardJarScanner) context.getJarScanner()).setScanManifest(false);
-			}
-		};
 	}
 
 }

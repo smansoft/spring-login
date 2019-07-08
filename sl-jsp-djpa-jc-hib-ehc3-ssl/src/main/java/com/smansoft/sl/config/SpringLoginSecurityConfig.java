@@ -61,7 +61,7 @@ public class SpringLoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity
-	  		.cors()
+				.cors()
 		  	.and()
 				.authorizeRequests()
 				.antMatchers(
@@ -100,13 +100,15 @@ public class SpringLoginSecurityConfig extends WebSecurityConfigurerAdapter {
 					.frameOptions().deny()
 			.and()
 				.headers()
+						.httpStrictTransportSecurity().maxAgeInSeconds(0).includeSubDomains(true)
+					.and()						
 						.xssProtection().block(true).xssProtectionEnabled(true)
 					.and()
 						.contentTypeOptions()
 					.and()
-						.defaultsDisabled().disable()
-				.headers()
-					.cacheControl();
+						.cacheControl()
+					.and()		
+						.defaultsDisabled().disable();
 	}
 	
 	/**

@@ -146,7 +146,7 @@ Usage
             srv.sl.key
                 or
             srv.sl.p12
-        in Web applications.
+        in Web applications/Servers.
         
         Files openssl.xxx.srv.cnf contain section:
             [alt_names]

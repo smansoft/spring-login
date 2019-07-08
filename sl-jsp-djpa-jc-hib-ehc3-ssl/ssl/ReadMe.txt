@@ -88,8 +88,8 @@ Usage
         ssl.rsa.sign    - suite of scripts (using ECDSA/RSA), that:
                             - generates CA keys (private and public);
                             - generates CA Certificate Request;
-                            - self-signes of CA Certificate Request;
-                            - signes of Server Certificate Request, by CA key;
+                            - self-signs of CA Certificate Request;
+                            - signs of Server Certificate Request, by CA key;
                             
                         - files/dirs:
                             cnfs/openssl.ca.int.cnf     - configuration file, that is used for generation of CA key pair and  

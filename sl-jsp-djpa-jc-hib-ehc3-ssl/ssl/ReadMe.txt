@@ -32,7 +32,7 @@ Usage
         .cert       - signed public key (ECDSA or RSA) (certificate) with additional text info in PEM format;
         .pem        - signed public key (ECDSA or RSA) (certificate) in PEM format;
         .chain.pem  - file, that contains list of authorized certificate(s), including root CA; 
-        .p12        - archive (in PKCS12 format), that contains private key, public key (certificate), and authorised certificate(s);
+        .p12        - archive (in PKCS12 format), that contains private key, public key (certificate), and authorized certificate(s);
 
     Suite of scripts contains follow directories:
         ssl.ecdsa.ca

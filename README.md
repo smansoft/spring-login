@@ -84,8 +84,9 @@ You can launch built applications as using
 as you can deploy them to your Java Servlet Container.
 
 If you build sl-jsp-djpa-jc-hib-ehc3-ssl with current version of src/main/resources/srv.sl.p12,
-you will need to import CA certificate (as trusted) from current version ssl/ssl.ecdsa.ca/out/ca.sl.pem.
-Also you can extract CA certificate from src/main/resources/srv.sl.p12.
+you will need to import CA certificate (as trusted, for ex. Trusted Root CA) from current version 
+ssl/ssl.ecdsa.ca/out/ca.sl.pem. Also you can extract CA certificate from
+src/main/resources/srv.sl.p12.
 
 Please, read this post: http://blog.smansoft.com/2019/04/13/spring-login-stack-templates/
 for more info and send your notes and questions to info@smansoft.com.

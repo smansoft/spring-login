@@ -131,11 +131,11 @@ Usage
                                     ssl.ecdsa.sign/out/srv.sl.cert
                                         or
                                     ssl.rsa.sign/out/srv.sl.cert
-                                and
+                                        and
                                     ssl.ecdsa.sign/out/ca.sl.cert
                                         or
                                     ssl.rsa.sign/out/ca.sl.cert 
-                                to
+                                        to
                                     ssl.ecdsa.req/out
                                         or
                                     ssl.rsa.req/out

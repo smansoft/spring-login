@@ -108,21 +108,25 @@ Usage
                             
         If you use ssl.ecdsa.req/ssl.rsa.req and ssl.ecdsa.sign/ssl.rsa.sign together, you should:
                         1.  call:
-                                ssl.ecdsa.sign/02.ca.sh
-                                    or
-                                ssl.rsa.sign/02.ca.sh
+                                    ssl.ecdsa.sign/02.ca.sh
+                                        or
+                                    ssl.rsa.sign/02.ca.sh
                         2.  call:
-                                ssl.ecdsa.req/02.srv.req.sh
-                                    or
-                                ssl.rsa.req/02.srv.req.sh
+                                    ssl.ecdsa.req/02.srv.req.sh
+                                        or
+                                    ssl.rsa.req/02.srv.req.sh
                         3.  copy:
-                                ssl.ecdsa.req/out/srv.sl.csr
-                                    or 
-                                ssl.rsa.req/out/srv.sl.csr
+                                    ssl.ecdsa.req/out/srv.sl.csr
+                                        or 
+                                    ssl.rsa.req/out/srv.sl.csr
+                                        to
+                                    ssl.ecdsa.sign/out
+                                        or
+                                    ssl.rsa.sign/out                                    
                         4.  call:
-                                ssl.ecdsa.sign/03.srv.sign.sh
-                                    or
-                                ssl.rsa.sign/03.srv.sign.sh
+                                    ssl.ecdsa.sign/03.srv.sign.sh
+                                        or
+                                    ssl.rsa.sign/03.srv.sign.sh
                         5.  copy:
                                     ssl.ecdsa.sign/out/srv.sl.cert
                                         or

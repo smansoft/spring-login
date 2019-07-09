@@ -1,2 +1,2 @@
-V	240706074703Z		01	unknown	/C=UA/ST=Kharkov/L=Kharkov/O=SManSoft/OU=SManSoft.SpringLogin/CN=SManSoft.SpringLogin.CA/emailAddress=smansoft@gmail.com
-V	240706074708Z		02	unknown	/C=UA/ST=Kharkov/L=Kharkov/O=SManSoft/OU=SManSoft.SpringLogin/CN=SManSoft.SpringLogin.Server/emailAddress=smansoft@gmail.com
+V	240707042958Z		01	unknown	/C=UA/ST=Kharkov/L=Kharkov/O=SManSoft/OU=SManSoft.SpringLogin/CN=SManSoft.SpringLogin.CA/emailAddress=smansoft@gmail.com
+V	240707043006Z		02	unknown	/C=UA/ST=Kharkov/L=Kharkov/O=SManSoft/OU=SManSoft.SpringLogin/CN=localhost/emailAddress=smansoft@gmail.com

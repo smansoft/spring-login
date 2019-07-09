@@ -5,51 +5,51 @@ Certificate:
         Signature Algorithm: ecdsa-with-SHA256
         Issuer: C=UA, ST=Kharkov, L=Kharkov, O=SManSoft, OU=SManSoft.SpringLogin, CN=SManSoft.SpringLogin.CA/emailAddress=smansoft@gmail.com
         Validity
-            Not Before: Jul  8 07:45:49 2019 GMT
-            Not After : Jul  6 07:45:49 2024 GMT
+            Not Before: Jul  9 04:29:17 2019 GMT
+            Not After : Jul  7 04:29:17 2024 GMT
         Subject: C=UA, ST=Kharkov, L=Kharkov, O=SManSoft, OU=SManSoft.SpringLogin, CN=SManSoft.SpringLogin.CA/emailAddress=smansoft@gmail.com
         Subject Public Key Info:
             Public Key Algorithm: id-ecPublicKey
                 Public-Key: (256 bit)
                 pub:
-                    04:d1:c7:7a:a9:9d:bf:05:4f:e8:3b:2b:0c:d6:09:
-                    9e:2c:90:b4:87:95:02:18:f2:70:bc:9d:ed:bc:7e:
-                    f1:0c:de:29:ad:5d:03:39:32:11:4b:e5:b6:cc:5a:
-                    a7:26:e8:f5:08:3d:5f:81:e8:a2:2f:69:94:b4:2d:
-                    66:9f:ef:34:35
+                    04:88:3d:b9:ee:27:8a:58:ff:67:c2:29:2c:04:06:
+                    ce:07:65:fe:98:a4:15:7d:50:8c:df:a5:61:c6:8d:
+                    6e:47:f0:eb:05:50:dc:49:3a:08:d3:8b:f6:0c:ee:
+                    2f:c9:b9:ae:74:cc:42:56:00:00:3a:bb:1b:48:83:
+                    e4:aa:e2:53:ae
                 ASN1 OID: prime256v1
                 NIST CURVE: P-256
         X509v3 extensions:
             X509v3 Basic Constraints: critical
                 CA:TRUE
             X509v3 Subject Key Identifier: 
-                34:87:C4:4D:83:2D:60:CE:A2:A1:3A:30:04:27:A6:FE:A9:64:CF:C2
+                8D:5E:7A:2E:86:C8:6A:A1:EF:E2:E6:1D:EE:A9:D7:2D:CA:03:00:A8
             X509v3 Authority Key Identifier: 
-                keyid:34:87:C4:4D:83:2D:60:CE:A2:A1:3A:30:04:27:A6:FE:A9:64:CF:C2
+                keyid:8D:5E:7A:2E:86:C8:6A:A1:EF:E2:E6:1D:EE:A9:D7:2D:CA:03:00:A8
 
             X509v3 Key Usage: critical
                 Digital Signature, Key Agreement, Certificate Sign, CRL Sign
             X509v3 Extended Key Usage: critical
                 TLS Web Server Authentication, TLS Web Client Authentication
     Signature Algorithm: ecdsa-with-SHA256
-         30:46:02:21:00:86:57:d5:7c:86:cb:4e:49:63:33:29:bd:ea:
-         00:59:ee:99:dc:a7:84:d9:e7:c4:bd:e3:66:87:22:d1:40:05:
-         70:02:21:00:c5:da:08:46:e4:64:71:bb:ad:cb:01:01:3d:a2:
-         1e:bf:21:e5:2b:f4:49:83:fb:d3:9b:e9:fc:fd:21:02:53:77
+         30:45:02:20:39:65:33:92:3c:1c:82:43:d2:00:19:f8:25:02:
+         1f:7e:34:f3:e7:ed:56:b8:fa:e8:a8:90:46:29:8c:a6:c7:95:
+         02:21:00:be:c9:67:08:be:00:7b:04:34:3d:9c:0a:9c:62:6a:
+         5a:b3:31:2b:40:60:57:79:79:68:80:b6:be:2e:8a:cb:98
 -----BEGIN CERTIFICATE-----
-MIICyTCCAm6gAwIBAgIBATAKBggqhkjOPQQDAjCBqDELMAkGA1UEBhMCVUExEDAO
+MIICyDCCAm6gAwIBAgIBATAKBggqhkjOPQQDAjCBqDELMAkGA1UEBhMCVUExEDAO
 BgNVBAgMB0toYXJrb3YxEDAOBgNVBAcMB0toYXJrb3YxETAPBgNVBAoMCFNNYW5T
 b2Z0MR0wGwYDVQQLDBRTTWFuU29mdC5TcHJpbmdMb2dpbjEgMB4GA1UEAwwXU01h
 blNvZnQuU3ByaW5nTG9naW4uQ0ExITAfBgkqhkiG9w0BCQEWEnNtYW5zb2Z0QGdt
-YWlsLmNvbTAeFw0xOTA3MDgwNzQ1NDlaFw0yNDA3MDYwNzQ1NDlaMIGoMQswCQYD
+YWlsLmNvbTAeFw0xOTA3MDkwNDI5MTdaFw0yNDA3MDcwNDI5MTdaMIGoMQswCQYD
 VQQGEwJVQTEQMA4GA1UECAwHS2hhcmtvdjEQMA4GA1UEBwwHS2hhcmtvdjERMA8G
 A1UECgwIU01hblNvZnQxHTAbBgNVBAsMFFNNYW5Tb2Z0LlNwcmluZ0xvZ2luMSAw
 HgYDVQQDDBdTTWFuU29mdC5TcHJpbmdMb2dpbi5DQTEhMB8GCSqGSIb3DQEJARYS
-c21hbnNvZnRAZ21haWwuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE0cd6
-qZ2/BU/oOysM1gmeLJC0h5UCGPJwvJ3tvH7xDN4prV0DOTIRS+W2zFqnJuj1CD1f
-geiiL2mUtC1mn+80NaOBhjCBgzAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBQ0
-h8RNgy1gzqKhOjAEJ6b+qWTPwjAfBgNVHSMEGDAWgBQ0h8RNgy1gzqKhOjAEJ6b+
-qWTPwjAOBgNVHQ8BAf8EBAMCAY4wIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwEGCCsG
-AQUFBwMCMAoGCCqGSM49BAMCA0kAMEYCIQCGV9V8hstOSWMzKb3qAFnumdynhNnn
-xL3jZoci0UAFcAIhAMXaCEbkZHG7rcsBAT2iHr8h5Sv0SYP705vp/P0hAlN3
+c21hbnNvZnRAZ21haWwuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEiD25
+7ieKWP9nwiksBAbOB2X+mKQVfVCM36Vhxo1uR/DrBVDcSToI04v2DO4vybmudMxC
+VgAAOrsbSIPkquJTrqOBhjCBgzAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBSN
+Xnouhshqoe/i5h3uqdctygMAqDAfBgNVHSMEGDAWgBSNXnouhshqoe/i5h3uqdct
+ygMAqDAOBgNVHQ8BAf8EBAMCAY4wIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwEGCCsG
+AQUFBwMCMAoGCCqGSM49BAMCA0gAMEUCIDllM5I8HIJD0gAZ+CUCH3408+ftVrj6
+6KiQRimMpseVAiEAvslnCL4AewQ0PZwKnGJqWrMxK0BgV3l5aIC2vi6Ky5g=
 -----END CERTIFICATE-----

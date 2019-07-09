@@ -5,54 +5,54 @@ Certificate:
         Signature Algorithm: ecdsa-with-SHA256
         Issuer: C=UA, ST=Kharkov, L=Kharkov, O=SManSoft, OU=SManSoft.SpringLogin, CN=SManSoft.SpringLogin.CA/emailAddress=smansoft@gmail.com
         Validity
-            Not Before: Jul  8 07:46:16 2019 GMT
-            Not After : Jul  6 07:46:16 2024 GMT
-        Subject: C=UA, ST=Kharkov, L=Kharkov, O=SManSoft, OU=SManSoft.SpringLogin, CN=SManSoft.SpringLogin.Server/emailAddress=smansoft@gmail.com
+            Not Before: Jul  9 04:29:21 2019 GMT
+            Not After : Jul  7 04:29:21 2024 GMT
+        Subject: C=UA, ST=Kharkov, L=Kharkov, O=SManSoft, OU=SManSoft.SpringLogin, CN=localhost/emailAddress=smansoft@gmail.com
         Subject Public Key Info:
             Public Key Algorithm: id-ecPublicKey
                 Public-Key: (256 bit)
                 pub:
-                    04:6a:8c:af:bd:ed:66:e9:0f:21:0d:d8:f6:48:a6:
-                    51:4f:94:81:02:57:e4:9a:a9:55:78:6e:73:b3:a4:
-                    60:bc:c4:03:fb:e4:6c:c2:05:b3:c4:b2:fd:74:cc:
-                    3d:93:a3:8a:90:e2:04:fd:0d:ca:ae:dd:16:27:47:
-                    0b:d6:ad:67:69
+                    04:de:c5:8f:08:25:47:ec:f2:c4:c3:f4:58:7f:d1:
+                    45:5f:1d:d3:42:8f:6e:5e:74:3a:b5:a5:bb:28:8b:
+                    b7:6c:42:15:27:30:a5:8b:14:aa:da:94:a9:33:fd:
+                    3e:04:ac:01:69:1a:88:b3:1e:92:ba:30:ce:e5:d4:
+                    22:f6:f0:bc:20
                 ASN1 OID: prime256v1
                 NIST CURVE: P-256
         X509v3 extensions:
             X509v3 Basic Constraints: critical
                 CA:FALSE
             X509v3 Subject Key Identifier: 
-                AE:6E:84:F1:0B:D1:3D:23:D8:74:68:D4:40:A0:86:0C:85:0E:A8:95
+                5D:29:54:B4:7F:8C:C6:CC:CE:74:98:01:60:9A:B5:68:8A:AD:8B:FB
             X509v3 Authority Key Identifier: 
-                keyid:34:87:C4:4D:83:2D:60:CE:A2:A1:3A:30:04:27:A6:FE:A9:64:CF:C2
+                keyid:8D:5E:7A:2E:86:C8:6A:A1:EF:E2:E6:1D:EE:A9:D7:2D:CA:03:00:A8
 
             X509v3 Key Usage: critical
                 Digital Signature, Key Agreement, Certificate Sign, CRL Sign
             X509v3 Extended Key Usage: critical
                 TLS Web Server Authentication, TLS Web Client Authentication
             X509v3 Subject Alternative Name: critical
-                DNS:localhost
+                DNS:localhost, DNS:*.localhost
     Signature Algorithm: ecdsa-with-SHA256
-         30:44:02:20:26:92:38:91:6a:a9:bd:df:15:5b:46:c8:38:4f:
-         84:43:e1:ca:6a:86:20:ca:d3:2e:84:87:35:0d:e3:66:fd:bb:
-         02:20:1a:34:46:d4:49:7c:22:5d:ea:2a:ee:6c:13:2f:b9:d7:
-         43:30:91:07:94:ce:15:6e:5f:e1:d8:7f:53:f1:7a:2b
+         30:45:02:20:58:39:c6:eb:72:af:8e:77:36:ac:1e:40:5d:7e:
+         48:d1:00:3f:8c:b9:8a:68:31:7e:18:45:d5:bb:48:32:12:7f:
+         02:21:00:99:89:2d:a7:e9:be:b8:15:ae:29:98:ae:17:b7:9f:
+         50:a9:b8:bc:ad:40:9b:54:2d:d3:5b:a0:9c:5d:a1:74:2c
 -----BEGIN CERTIFICATE-----
-MIIC4TCCAoigAwIBAgIBAjAKBggqhkjOPQQDAjCBqDELMAkGA1UEBhMCVUExEDAO
+MIIC3TCCAoOgAwIBAgIBAjAKBggqhkjOPQQDAjCBqDELMAkGA1UEBhMCVUExEDAO
 BgNVBAgMB0toYXJrb3YxEDAOBgNVBAcMB0toYXJrb3YxETAPBgNVBAoMCFNNYW5T
 b2Z0MR0wGwYDVQQLDBRTTWFuU29mdC5TcHJpbmdMb2dpbjEgMB4GA1UEAwwXU01h
 blNvZnQuU3ByaW5nTG9naW4uQ0ExITAfBgkqhkiG9w0BCQEWEnNtYW5zb2Z0QGdt
-YWlsLmNvbTAeFw0xOTA3MDgwNzQ2MTZaFw0yNDA3MDYwNzQ2MTZaMIGsMQswCQYD
+YWlsLmNvbTAeFw0xOTA3MDkwNDI5MjFaFw0yNDA3MDcwNDI5MjFaMIGaMQswCQYD
 VQQGEwJVQTEQMA4GA1UECAwHS2hhcmtvdjEQMA4GA1UEBwwHS2hhcmtvdjERMA8G
-A1UECgwIU01hblNvZnQxHTAbBgNVBAsMFFNNYW5Tb2Z0LlNwcmluZ0xvZ2luMSQw
-IgYDVQQDDBtTTWFuU29mdC5TcHJpbmdMb2dpbi5TZXJ2ZXIxITAfBgkqhkiG9w0B
-CQEWEnNtYW5zb2Z0QGdtYWlsLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IA
-BGqMr73tZukPIQ3Y9kimUU+UgQJX5JqpVXhuc7OkYLzEA/vkbMIFs8Sy/XTMPZOj
-ipDiBP0Nyq7dFidHC9atZ2mjgZwwgZkwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU
-rm6E8QvRPSPYdGjUQKCGDIUOqJUwHwYDVR0jBBgwFoAUNIfETYMtYM6ioTowBCem
-/qlkz8IwDgYDVR0PAQH/BAQDAgGOMCAGA1UdJQEB/wQWMBQGCCsGAQUFBwMBBggr
-BgEFBQcDAjAXBgNVHREBAf8EDTALgglsb2NhbGhvc3QwCgYIKoZIzj0EAwIDRwAw
-RAIgJpI4kWqpvd8VW0bIOE+EQ+HKaoYgytMuhIc1DeNm/bsCIBo0RtRJfCJd6iru
-bBMvuddDMJEHlM4Vbl/h2H9T8Xor
+A1UECgwIU01hblNvZnQxHTAbBgNVBAsMFFNNYW5Tb2Z0LlNwcmluZ0xvZ2luMRIw
+EAYDVQQDDAlsb2NhbGhvc3QxITAfBgkqhkiG9w0BCQEWEnNtYW5zb2Z0QGdtYWls
+LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABN7FjwglR+zyxMP0WH/RRV8d
+00KPbl50OrWluyiLt2xCFScwpYsUqtqUqTP9PgSsAWkaiLMekrowzuXUIvbwvCCj
+gakwgaYwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQUXSlUtH+MxszOdJgBYJq1aIqt
+i/swHwYDVR0jBBgwFoAUjV56LobIaqHv4uYd7qnXLcoDAKgwDgYDVR0PAQH/BAQD
+AgGOMCAGA1UdJQEB/wQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAkBgNVHREBAf8E
+GjAYgglsb2NhbGhvc3SCCyoubG9jYWxob3N0MAoGCCqGSM49BAMCA0gAMEUCIFg5
+xutyr453NqweQF1+SNEAP4y5imgxfhhF1btIMhJ/AiEAmYktp+m+uBWuKZiuF7ef
+UKm4vK1Am1Qt01ugnF2hdCw=
 -----END CERTIFICATE-----

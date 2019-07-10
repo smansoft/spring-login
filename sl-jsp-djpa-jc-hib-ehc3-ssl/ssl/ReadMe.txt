@@ -163,7 +163,7 @@ Usage
 
 Please, send your notes and questions to
     mailto:info@smansoft.com
-
+.
 
 -----------------------------------------------------------------------------------------------
 End of document

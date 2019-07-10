@@ -122,7 +122,7 @@ Usage
                                         to
                                     ssl.ecdsa.sign/out
                                         or
-                                    ssl.rsa.sign/out                                    
+                                    ssl.rsa.sign/out
                         4.  call:
                                     ssl.ecdsa.sign/03.srv.sign.sh
                                         or

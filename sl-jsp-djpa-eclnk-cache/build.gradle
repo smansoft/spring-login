@@ -9,51 +9,54 @@ project (":sl-jsp-djpa-eclnk-cache") {
     description = 'spring-login-web Webapp'
 
     dependencies {
-        compile project(':print-tool')
+        implementation project(':print-tool')
 
-        compile(group: 'javax.servlet',             name: 'jstl',                   	version: jstl_version)
-        compile(group: 'cglib',             		name: 'cglib',                   	version: cglib_version)
+        implementation(group: 'javax.servlet',             name: 'jstl',                   	version: jstl_version)
+        implementation(group: 'cglib',             		name: 'cglib',                   	version: cglib_version)
 
-	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-web', 	version: spring_boot_version) {
+	    implementation(group: 'org.springframework.boot', 	name: 'spring-boot-starter-web', 	version: spring_boot_version) {
 			exclude(group: 	'org.hibernate.validator')
 			exclude(module: 'spring-boot-starter-logging')
 	    }
-   	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-security', 		version: spring_boot_version)
-   	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-data-jpa', 		version: spring_boot_version) {
+   	    implementation(group: 'org.springframework.boot', 	name: 'spring-boot-starter-security', 		version: spring_boot_version)
+   	    implementation(group: 'org.springframework.boot', 	name: 'spring-boot-starter-data-jpa', 		version: spring_boot_version) {
 			exclude(group: 	'org.hibernate')
 			exclude(group:	'org.hibernate.validator')
 	    }
-	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-web', 			version: spring_boot_version)
-	    compile(group: 'org.springframework.boot', 	name: 'spring-boot-starter-tomcat', 		version: spring_boot_version)
+	    implementation(group: 'org.springframework.boot', 	name: 'spring-boot-starter-web', 			version: spring_boot_version)
+	    implementation(group: 'org.springframework.boot', 	name: 'spring-boot-starter-tomcat', 		version: spring_boot_version)
 
-  	    compile(group: 'org.springframework.security', 	name: 'spring-security-core', 			version: spring_security_version)
-  	    compile(group: 'org.springframework.security', 	name: 'spring-security-config', 		version: spring_security_version)
-  	    compile(group: 'org.springframework.security', 	name: 'spring-security-web', 			version: spring_security_version)
-  	    compile(group: 'org.springframework.security', 	name: 'spring-security-taglibs', 		version: spring_security_version)
+  	    implementation(group: 'org.springframework.security', 	name: 'spring-security-core', 			version: spring_security_version)
+  	    implementation(group: 'org.springframework.security', 	name: 'spring-security-config', 		version: spring_security_version)
+  	    implementation(group: 'org.springframework.security', 	name: 'spring-security-web', 			version: spring_security_version)
+  	    implementation(group: 'org.springframework.security', 	name: 'spring-security-taglibs', 		version: spring_security_version)
 
-		compile(group: 'org.apache.tiles', 			name: 'tiles-api', 							version: tiles_version)
-		compile(group: 'org.apache.tiles', 			name: 'tiles-core', 						version: tiles_version)
-		compile(group: 'org.apache.tiles', 			name: 'tiles-extras', 						version: tiles_version)
+		implementation(group: 'org.apache.tiles', 			name: 'tiles-api', 							version: tiles_version)
+		implementation(group: 'org.apache.tiles', 			name: 'tiles-core', 						version: tiles_version)
+		implementation(group: 'org.apache.tiles', 			name: 'tiles-extras', 						version: tiles_version)
 
-	    compile(group: 'org.apache.tomcat.embed', 			name: 'tomcat-embed-jasper', 		version: tomcat_embed_jasper_version)
-	    compile(group: 'org.eclipse.jdt.core.compiler', 	name: 'ecj', 						version: ecj_version)
-	    compile(group: 'org.webjars', 						name: 'bootstrap', 					version: bootstrap_version)
+	    implementation(group: 'org.apache.tomcat.embed', 			name: 'tomcat-embed-jasper', 		version: tomcat_embed_jasper_version)
+	    implementation(group: 'org.eclipse.jdt.core.compiler', 	    name: 'ecj', 						version: ecj_version)
+	    implementation(group: 'org.webjars', 						name: 'bootstrap', 					version: bootstrap_version)
 
-        compile(group: 'mysql',							name: 'mysql-connector-java',   		version: mysql_connector_version)
+        implementation(group: 'mysql',							name: 'mysql-connector-java',   		version: mysql_connector_version)
 
-        compile(group: 'org.eclipse.persistence',		name: 'eclipselink',   					version: eclipselink_version) {
+        implementation(group: 'org.eclipse.persistence',		name: 'eclipselink',   					version: eclipselink_version) {
 			exclude(group:	'org.eclipse.persistence', 	module:'javax.persistence')
 			exclude(group:	'org.eclipse.persistence', 	module:'jakarta.persistence')
 	    }
 
-        compile(group: 'org.eclipse.persistence',		name: 'javax.persistence',       		version: persistence_api_version)
+        implementation(group: 'org.eclipse.persistence',		name: 'javax.persistence',       		version: persistence_api_version)
 
-        compile(group: 'ch.qos.logback',    			name: 'logback-classic',        version: logback_version)
-        compile(group: 'ch.qos.logback',    			name: 'logback-core',        	version: logback_version)
-        compile(group: 'org.slf4j',         			name: 'jcl-over-slf4j',         version: slf4j_version)
-        compile(group: 'org.slf4j',         			name: 'slf4j-api',           	version: slf4j_version)
+        implementation(group: 'ch.qos.logback',    			name: 'logback-classic',        version: logback_version)
+        implementation(group: 'ch.qos.logback',    			name: 'logback-core',        	version: logback_version)
+        implementation(group: 'org.slf4j',         			name: 'jcl-over-slf4j',         version: slf4j_version)
+        implementation(group: 'org.slf4j',         			name: 'slf4j-api',           	version: slf4j_version)
 
-		testCompile(group: 'org.springframework.boot',	name: 'spring-boot-starter-test',	version: spring_boot_version)
+        testImplementation(group: 'org.springframework.boot',	name: 'spring-boot-starter-test',	version: spring_boot_version) {
+			exclude(module: 'junit')
+	    }
+        testImplementation(group: 'org.junit.jupiter',	name: 'junit-jupiter',	version: junit_jupiter_version)
     }
 
     compileJava {
@@ -79,8 +82,8 @@ project (":sl-jsp-djpa-eclnk-cache") {
     build.doLast {
     }
 
-    task copyDependLibs(type: Copy) {
-        from (configurations.runtime)
+    task copyDependencies(type: Copy) {
+        from (configurations.runtimeClasspath)
         into ("$target_root_dir/$bin_dir/$libs_dir")
         doFirst {
         }
@@ -126,7 +129,7 @@ project (":sl-jsp-djpa-eclnk-cache") {
     }
     
     task buildDeploy {
-        dependsOn copyDependLibs
+        dependsOn copyDependencies
         dependsOn zip
         dependsOn copyJar
         dependsOn copyRenameJar

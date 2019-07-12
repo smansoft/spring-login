@@ -1,7 +1,6 @@
 
 rootProject.name = 'spring-login'
 
-
 include ':print-tool'
 
 include ':sl-jsp-hib-ehc2'

@@ -62,6 +62,7 @@
 		<logback.version>1.2.3</logback.version>
 		<!-- -->
 		<junit.version>4.12</junit.version>
+		<junit-jupiter.version>5.5.0</junit-jupiter.version>
 		<!-- Plug-ins -->
 		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 		<compiler-source.version>1.8</compiler-source.version>
@@ -76,6 +77,8 @@
 
 		<maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
 		<maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 		<!--  -->
 		<target2.folder.name>bin</target2.folder.name>
 

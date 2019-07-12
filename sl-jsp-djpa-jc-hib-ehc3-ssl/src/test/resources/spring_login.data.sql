@@ -1,0 +1,7 @@
+INSERT INTO users (email, enabled, password, sex, user_address, user_login, user_name) VALUES ('root@root.admin', 1, '$2a$10$TVFdpW.MbiDCkS.B7H8Jq.abOqYf8MopHCtkOjJS0TKNGRTN8vQVi', 0, '', 'root', 'Root')
+INSERT INTO user_roles (user_role_type, user_id) VALUES (0, (select id from users where user_login='root'))
+INSERT INTO user_roles (user_role_type, user_id) VALUES (1, (select id from users where user_login='root'))
+INSERT INTO user_roles (user_role_type, user_id) VALUES (2, (select id from users where user_login='root'))
+INSERT INTO user_roles (user_role_type, user_id) VALUES (3, (select id from users where user_login='root'))
+INSERT INTO user_roles (user_role_type, user_id) VALUES (4, (select id from users where user_login='root'))
+INSERT INTO user_roles (user_role_type, user_id) VALUES (5, (select id from users where user_login='root'))

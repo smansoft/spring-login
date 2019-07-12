@@ -6,12 +6,12 @@ project (":print-tool") {
     description = 'print-tool'
 
     dependencies {
-        compile(group: 'ch.qos.logback',    			name: 'logback-classic',        version: logback_version)
-        compile(group: 'ch.qos.logback',    			name: 'logback-core',        	version: logback_version)
-        compile(group: 'org.slf4j',         			name: 'jcl-over-slf4j',         version: slf4j_version)
-        compile(group: 'org.slf4j',         			name: 'slf4j-api',           	version: slf4j_version)
-        
-        testCompile(group: 'junit',                     name: 'junit',                  version: junit_version)
+        implementation    (group: 'ch.qos.logback',    			name: 'logback-classic',        version: logback_version)
+        implementation    (group: 'ch.qos.logback',    			name: 'logback-core',        	version: logback_version)
+        implementation    (group: 'org.slf4j',         			name: 'jcl-over-slf4j',         version: slf4j_version)
+        implementation    (group: 'org.slf4j',         			name: 'slf4j-api',           	version: slf4j_version)
+
+        testImplementation (group: 'org.junit.jupiter',			name: 'junit-jupiter',			version: junit_jupiter_version) 
     }
 
     compileJava {
@@ -30,8 +30,8 @@ project (":print-tool") {
     build.doLast {
     }
 
-    task copyDependLibs(type: Copy) {
-        from (configurations.runtime)
+    task copyDependencies(type: Copy) {
+        from (configurations.runtimeClasspath)
         into ("$target_root_dir/$bin_dir/$libs_dir")
         doFirst {
         }
@@ -77,7 +77,7 @@ project (":print-tool") {
     }
     
     task buildDeploy {
-        dependsOn copyDependLibs
+        dependsOn copyDependencies
         dependsOn zip
         dependsOn copyJar
         dependsOn copyRenameJar
@@ -100,4 +100,10 @@ project (":print-tool") {
 
     clean.dependsOn(cleanRemove)
     build.dependsOn(buildDeploy)
+
+	test {
+    	useJUnitPlatform {
+			includeEngines 'junit-jupiter'
+    	}
+	}
 }

@@ -1,11 +1,12 @@
 /**
  * 
  */
-package com.smansoft.tools.print;
+package com.smansoft.tools.print.tests;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.LoggerFactory;
 
 import com.smansoft.tools.print.api.IPrintTool;
@@ -22,10 +23,10 @@ import com.smansoft.tools.print.vo.IpVO;
  * @author SMan
  *
  */
-public class TestPrintTool {
+public class PrintToolUTest {
 
 	private static final IPrintTool printTool = PrintTool
-			.getPrintToolInstance(LoggerFactory.getLogger(TestPrintTool.class));
+			.getPrintToolInstance(LoggerFactory.getLogger(PrintToolUTest.class));
 
 	/**
 	 * 
@@ -40,16 +41,20 @@ public class TestPrintTool {
 	/**
 	 * 
 	 */
-	public 	TestPrintTool() {
+	public 	PrintToolUTest() {
+		printTool.debug(PrintSfx.SFX_IN);
+		
 		ipVO = new IpVO();
 		addressReqVO = new AddressReqVO();
+		
+		printTool.debug(PrintSfx.SFX_OUT);		
 	}
 	
 	/**
 	 * 
 	 */
-	@Before
-	public void beforeTest() {
+	@BeforeEach
+	public void beforeEachTest() {
 		printTool.debug(PrintSfx.SFX_IN);
 
 		IpRecordVO ipRecordVO = new IpRecordVO();
@@ -112,7 +117,17 @@ public class TestPrintTool {
 		printTool.info(addressReqVO);		
 		
 		printTool.debug(PrintSfx.SFX_OUT);
-		Assert.assertTrue(true);
+		Assertions.assertTrue(true);
+	}
+
+	/**
+	 * 
+	 */
+	@AfterEach
+	public void afterEachTest() {
+		printTool.debug(PrintSfx.SFX_IN);
+		ipVO.getIpRecords().clear();
+		printTool.debug(PrintSfx.SFX_OUT);		
 	}
 
 }

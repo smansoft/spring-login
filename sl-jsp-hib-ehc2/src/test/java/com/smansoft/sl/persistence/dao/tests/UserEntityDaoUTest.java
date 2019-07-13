@@ -3,19 +3,18 @@
  */
 package com.smansoft.sl.persistence.dao.tests;
 
+import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.query.NativeQuery;
+
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,9 +23,10 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.smansoft.sl.BaseTest;
 import com.smansoft.sl.bl.services.converters.RegisterVOToUserEntityConverter;
 import com.smansoft.sl.bl.services.converters.UserEntityToRegisterVOConverter;
 import com.smansoft.sl.bl.services.converters.UserEntityToUserVOConverter;
@@ -46,12 +46,13 @@ import com.smansoft.tools.print.impl.PrintTool;
  *
  */
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(properties = "classpath:application.properties")
+@SpringBootTest
+@TestPropertySource(locations="classpath:application-test.properties")
 @Import(SpringLoginPersistenceConfig.class)
 @Execution(ExecutionMode.SAME_THREAD)
-@ComponentScan (basePackages="com.smansoft.sl")
+@ComponentScan(basePackages="com.smansoft.sl")
 @EnableAutoConfiguration(exclude=HibernateJpaAutoConfiguration.class)
-public class UserEntityDaoUTest {
+public class UserEntityDaoUTest extends BaseTest {
 
 	private static final IPrintTool printTool = PrintTool
 			.getPrintToolInstance(LoggerFactory.getLogger(UserEntityDaoUTest.class));
@@ -75,10 +76,6 @@ public class UserEntityDaoUTest {
 	@Autowired
 	@Qualifier(UserEntityToRegisterVOConverter.DEF_BEAN_NAME)
 	private UserEntityToRegisterVOConverter userEntityToRegisterVOConverterBean;
-
-	@Autowired
-	@Qualifier("passwordEncoder")
-	private BCryptPasswordEncoder passwordEncoder;
 	
 	/**
 	 * 
@@ -89,49 +86,10 @@ public class UserEntityDaoUTest {
 	/**
 	 * 
 	 */
-	private void clearDataBase() {
-		printTool.debug(PrintSfx.SFX_IN);
-		
-		Session session = null;
-		Transaction tr = null;
-		
-		try {
-			session = sessionFactory.openSession();
-			tr = session.beginTransaction();
-			
-			@SuppressWarnings("rawtypes")
-			NativeQuery query = session.createSQLQuery("delete from authorities where id  >= 0");
-			query.executeUpdate();
-			
-			query = session.createSQLQuery("delete from users where id >= 0");
-			query.executeUpdate();
-		}
-		catch (Exception ex) {
-			if(tr != null && tr.isActive()) {
-				tr.rollback();
-				tr = null;
-			}
-		}
-		finally {
-			if(tr != null && tr.isActive()) {
-				tr.commit();
-				tr = null;				
-			}
-		}
-		
-		if(session != null) {
-			session.close();
-		}
-
-		printTool.debug(PrintSfx.SFX_OUT);
-	}
-	
-	/**
-	 * 
-	 */
 	@BeforeAll
 	public static void beforeAllTests() {
 		printTool.debug(PrintSfx.SFX_IN);
+		recreateDatabase();		
 		printTool.debug(PrintSfx.SFX_OUT);
 	}
 
@@ -149,6 +107,7 @@ public class UserEntityDaoUTest {
 	 * 
 	 */
 	@Test
+	@Order(1)
 	public void test1CreateUser() {
 		printTool.debug(PrintSfx.SFX_IN);
 		
@@ -243,6 +202,7 @@ public class UserEntityDaoUTest {
 	 * 
 	 */
 	@Test
+	@Order(2)	
 	public void test2FindUser() {
 		printTool.debug(PrintSfx.SFX_IN);
 		
@@ -283,6 +243,7 @@ public class UserEntityDaoUTest {
 	 * 
 	 */
 	@Test
+	@Order(3)
 	public void test3DoSmth() {
 		printTool.debug(PrintSfx.SFX_IN);
 		

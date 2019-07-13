@@ -190,23 +190,6 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	/**
-	 * @throws ServicesException 
-	 * 
-	 */
-	@Transactional(readOnly = true, propagation = Propagation.REQUIRED, isolation = Isolation.SERIALIZABLE, rollbackFor = Throwable.class)
-	@Override
-	public UserVO getUserById(Long id) throws ServicesException {
-		UserEntity userEntity = null;
-		try {
-			userEntity = userEntityDaoBean.findById(id).get();
-		} catch (DaoException e) {
-			throw new ServicesException(ExceptionTools.stackTraceToString(e), e);
-		}
-		UserVO userVO = userEntityToUserVOConverterBean.apply(userEntity);
-		return userVO;
-	}
-
-	/**
 	 * @param userLogin
 	 * @return
 	 * @throws ServicesException 
@@ -282,27 +265,6 @@ public class UserServiceImpl implements IUserService {
 
 	/**
 	 * 
-	 * @param id
-	 * @throws ServicesException 
-	 * @throws DaoException 
-	 */
-	@Transactional(readOnly = true, propagation = Propagation.REQUIRED, isolation = Isolation.SERIALIZABLE, rollbackFor = Throwable.class)
-	@Override
-	public UserVO deleteUserById(Long id) throws ServicesException {
-		UserEntity userEntity = null;
-		UserVO userVO = null;
-		try {
-			userEntity = userEntityDaoBean.findById(id).get();
-			userVO = userEntityToUserVOConverterBean.apply(userEntity);
-			userEntityDaoBean.deleteById(id);
-		} catch (DaoException e) {
-			throw new ServicesException(ExceptionTools.stackTraceToString(e), e);
-		}		
-		return userVO;
-	}
-
-	/**
-	 * 
 	 * @param userLogin
 	 * @throws ServicesException 
 	 * @throws DaoException 
@@ -335,6 +297,7 @@ public class UserServiceImpl implements IUserService {
 		try {
 			userEntity = userEntityDaoBean.findByEmail(email);
 			userVO = userEntityToUserVOConverterBean.apply(userEntity);
+			userEntityDaoBean.deleteByEmail(email);			
 		} catch (DaoException e) {
 			throw new ServicesException(ExceptionTools.stackTraceToString(e), e);
 		}			

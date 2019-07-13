@@ -53,14 +53,6 @@ public interface IUserService {
 	List<RegisterVO> getAllRegisters() throws ServicesException;
 
 	/**
-	 * 
-	 * @param id
-	 * @return
-	 * @throws ServicesException 
-	 */
-	UserVO getUserById(Long id) throws ServicesException;
-
-	/**
 	 * @param userLogin
 	 * @return
 	 * @throws ServicesException 
@@ -89,14 +81,6 @@ public interface IUserService {
 	 * @throws ServicesException 
 	 */
 	List<UserVO> getUsersByUserName(String userName) throws ServicesException;
-
-	/**
-	 * 
-	 * @param id
-	 * @return
-	 * @throws ServicesException 
-	 */
-	UserVO deleteUserById(Long id) throws ServicesException;
 
 	/**
 	 * 

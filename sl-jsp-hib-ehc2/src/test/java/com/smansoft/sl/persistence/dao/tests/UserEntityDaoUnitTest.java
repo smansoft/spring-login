@@ -9,8 +9,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -52,10 +54,11 @@ import com.smansoft.tools.print.impl.PrintTool;
 @Execution(ExecutionMode.SAME_THREAD)
 @ComponentScan(basePackages="com.smansoft.sl")
 @EnableAutoConfiguration(exclude=HibernateJpaAutoConfiguration.class)
-public class UserEntityDaoUTest extends BaseTest {
+@TestMethodOrder(OrderAnnotation.class)
+public class UserEntityDaoUnitTest extends BaseTest {
 
 	private static final IPrintTool printTool = PrintTool
-			.getPrintToolInstance(LoggerFactory.getLogger(UserEntityDaoUTest.class));
+			.getPrintToolInstance(LoggerFactory.getLogger(UserEntityDaoUnitTest.class));
 	
 	@Autowired
 	@Qualifier(IAuthorityEntityDao.DEF_BEAN_NAME)

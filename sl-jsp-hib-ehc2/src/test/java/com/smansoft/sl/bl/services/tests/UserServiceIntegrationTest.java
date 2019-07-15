@@ -12,6 +12,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -29,9 +31,7 @@ import com.smansoft.sl.BaseTest;
 import com.smansoft.sl.bl.services.api.IUserService;
 import com.smansoft.sl.bl.services.vo.RegisterVO;
 import com.smansoft.sl.bl.services.vo.UserVO;
-import com.smansoft.sl.exceptions.DaoException;
 import com.smansoft.sl.exceptions.ServicesException;
-import com.smansoft.sl.persistence.entities.UserEntity;
 import com.smansoft.tools.common.ExceptionTools;
 import com.smansoft.tools.print.api.IPrintTool;
 import com.smansoft.tools.print.api.types.PrintSfx;
@@ -44,15 +44,18 @@ import com.smansoft.tools.print.impl.PrintTool;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @TestPropertySource(locations="classpath:application-test.properties")
-///@Import(SpringLoginPersistenceConfig.class)
 @Execution(ExecutionMode.SAME_THREAD)
 @ComponentScan(basePackages="com.smansoft.sl")
 @EnableAutoConfiguration(exclude=HibernateJpaAutoConfiguration.class)
-public class UserServiceITest extends BaseTest {
+@TestMethodOrder(OrderAnnotation.class)
+public class UserServiceIntegrationTest extends BaseTest {
 	
 	private static final IPrintTool printTool = PrintTool
-			.getPrintToolInstance(LoggerFactory.getLogger(UserServiceITest.class));
+			.getPrintToolInstance(LoggerFactory.getLogger(UserServiceIntegrationTest.class));
 	
+	/**
+	 * 
+	 */
 	@Autowired
 	@Qualifier(IUserService.DEF_BEAN_NAME)
 	private IUserService userServiceBean;
@@ -249,9 +252,8 @@ public class UserServiceITest extends BaseTest {
 	 */
 	@Test
 	@Order(5)	
-	public void test4AllUsersRegisters() {
+	public void test5AllUsersRegisters() {
 		printTool.debug(PrintSfx.SFX_IN);	
-		
 		try {
 			RegisterVO registerVO = new RegisterVO();
 			
@@ -312,7 +314,54 @@ public class UserServiceITest extends BaseTest {
 			if(allUsers.size() != 0 || allRegisters.size() != 0) {
 				Assertions.fail("Error: Wrong Number of Users: User wasn't deleted.");
 			}			
+		} catch (ServicesException e) {
+			Assertions.fail(ExceptionTools.stackTraceToString(e));
+		}		
+		printTool.debug(PrintSfx.SFX_OUT);
+		Assertions.assertTrue(true);			
+	}
+
+	/**
+	 * 
+	 */
+	@Test	
+	@Order(6)	
+	public void test6GetBy() {
+		printTool.debug(PrintSfx.SFX_IN);
+		try {
+			RegisterVO registerVO = new RegisterVO();
 			
+			registerVO.setLogin("sman");
+			registerVO.setEmail("sman@smansoft.com");
+			registerVO.setName("SMan");		
+			registerVO.setPassword("12345");		
+			registerVO.setPasswordConfirm("12345");
+			registerVO.setEnabled(true);
+			registerVO.setIsAdmin(true);
+			
+			userServiceBean.createUser(registerVO);
+			
+			List<UserVO> allUsers = userServiceBean.getAllUsers();
+			List<RegisterVO> allRegisters = userServiceBean.getAllRegisters();
+			if(allUsers.size() != 1 || allRegisters.size() != 1) {
+				Assertions.fail("Error: Wrong Number of Users: User wasn't created.");
+			}
+			
+			UserVO userVO = userServiceBean.getUserByUserLogin("sman");
+			if(!"sman".equals(userVO.getLogin()) || !"sman@smansoft.com".equals(userVO.getEmail()) 
+					|| !"SMan".equals(userVO.getName())) {
+				Assertions.fail("Error: Wrong UserVO.");
+			}
+			userVO = userServiceBean.getUserByEmail("sman@smansoft.com");
+			if(!"sman".equals(userVO.getLogin()) || !"sman@smansoft.com".equals(userVO.getEmail()) 
+					|| !"SMan".equals(userVO.getName())) {
+				Assertions.fail("Error: Wrong UserVO.");
+			}
+			registerVO = userServiceBean.getRegisterByUserLogin("sman");
+			if(!"sman".equals(registerVO.getLogin()) || !"sman@smansoft.com".equals(registerVO.getEmail()) 
+					|| !"SMan".equals(registerVO.getName()) || !registerVO.getIsAdmin()) {
+				Assertions.fail("Error: Wrong RegisterVO.");
+			}
 		} catch (ServicesException e) {
 			Assertions.fail(ExceptionTools.stackTraceToString(e));
 		}		

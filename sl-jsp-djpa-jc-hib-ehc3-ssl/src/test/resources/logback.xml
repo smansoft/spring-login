@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-	<property name="BASE_FILE_NAME" value="sl-jsp-djpa-jc-hib-ehc3-ssl" />
+	<property name="BASE_FILE_NAME" value="sl-jsp-djpa-jc-hib-ehc3-ssl-test" />
 	<property name="DEV_HOME" 		value="./logs" />
 	
 	<property name="LOG-FILE-ALL" 	value="${BASE_FILE_NAME}.all" />	

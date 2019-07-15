@@ -55,5 +55,32 @@ public class RegisterVO extends BaseUserVO {
 	public boolean getIsAdmin() {
 		return this.isAdmin;
 	}
-
+	
+	/**
+	 * 
+	 */
+	@Override
+	public boolean equals(Object object) {
+		if(!super.equals(object)) {
+			return false;
+		}		
+		RegisterVO registerVO = (RegisterVO) object;
+		if((this.getPasswordConfirm() != null || registerVO.getPasswordConfirm() != null) &&   
+				(!this.getPasswordConfirm().equalsIgnoreCase(registerVO.getPasswordConfirm()))) {
+			return false;
+		}
+		if(this.getIsAdmin() != registerVO.getIsAdmin()) {
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * 
+	 */
+	@Override	
+	public RegisterVO clone() throws CloneNotSupportedException {  
+		return (RegisterVO)super.clone();  
+	}  	
+	
 }

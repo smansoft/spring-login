@@ -17,7 +17,7 @@ import com.smansoft.tools.print.api.types.PrintSfx;
  * @author SMan
  *
  */
-public class BaseUserVO implements Serializable, IPrintable {
+public class BaseUserVO implements Serializable, Cloneable, IPrintable {
 
 	/**
 	 * 
@@ -176,5 +176,49 @@ public class BaseUserVO implements Serializable, IPrintable {
 	public boolean usePrintService() {
 		return true;
 	}
-
+	
+	/**
+	 * 
+	 */
+	@Override
+	public boolean equals(Object object) {
+		if(this == object) {
+			return true;
+		}
+		if(object == null) {
+			return false;
+		}
+		if(getClass() != object.getClass()) {
+			return false;			
+		}
+		BaseUserVO registerVO = (BaseUserVO) object;
+		if((this.getLogin() != null || registerVO.getLogin() != null) &&   
+				(!this.getLogin().equals(registerVO.getLogin()))) {
+			return false;
+		}
+		if((this.getEmail() != null || registerVO.getEmail() != null) &&   
+				(!this.getEmail().equalsIgnoreCase(registerVO.getEmail()))) {
+			return false;
+		}
+		if((this.getName() != null || registerVO.getName() != null) &&   
+				(!this.getName().equalsIgnoreCase(registerVO.getName()))) {
+			return false;
+		}
+		if((this.getPassword() != null || registerVO.getPassword() != null) &&   
+				(!this.getPassword().equalsIgnoreCase(registerVO.getPassword()))) {
+			return false;
+		}
+		if(this.getEnabled() != registerVO.getEnabled()) {
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * 
+	 */
+	@Override	
+	public BaseUserVO clone() throws CloneNotSupportedException {  
+		return (BaseUserVO)super.clone();  
+	}  	
 }

@@ -35,11 +35,11 @@ project (":sl-jsp-hib-ehc2") {
         implementation(group: 'org.slf4j',         			name: 'slf4j-api',           	version: slf4j_version)
         
         testImplementation(group: 'org.springframework.boot',	name: 'spring-boot-starter-test',	version: spring_boot_version) {
-			exclude(module: 'junit')
-	    }
-        testImplementation(group: 'org.junit.jupiter',	name: 'junit-jupiter',			version: junit_jupiter_version)
-        testImplementation(group: 'org.junit.jupiter',	name: 'junit-jupiter-api',		version: junit_jupiter_version)
-        testImplementation(group: 'org.junit.jupiter',	name: 'junit-jupiter-engine',	version: junit_jupiter_version)
+            exclude(module: 'junit')
+        }
+        testImplementation(group: 'org.junit.jupiter',  name: 'junit-jupiter',          version: junit_jupiter_version)
+        testImplementation(group: 'org.junit.jupiter',  name: 'junit-jupiter-api',      version: junit_jupiter_version)
+        testImplementation(group: 'org.junit.jupiter',  name: 'junit-jupiter-engine',   version: junit_jupiter_version)
     }
 
     compileJava {

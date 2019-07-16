@@ -105,7 +105,6 @@
 
 		<junit.version>4.12</junit.version>
 		<junit-jupiter.version>5.5.0</junit-jupiter.version>
-
 		<!-- Plug-ins -->
 		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 		<compiler-source.version>1.8</compiler-source.version>

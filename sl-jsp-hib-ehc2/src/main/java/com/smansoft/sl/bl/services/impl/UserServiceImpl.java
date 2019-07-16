@@ -70,6 +70,38 @@ public class UserServiceImpl implements IUserService {
 	@Autowired
 	@Qualifier("passwordEncoder")
 	private BCryptPasswordEncoder passwordEncoder;
+	
+	/**
+	 * 
+	 * @param authorityEntityDaoBean
+	 */
+	public void setAuthorityEntityDaoBean(IAuthorityEntityDao authorityEntityDaoBean) {
+		this.authorityEntityDaoBean = authorityEntityDaoBean;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public IAuthorityEntityDao getAuthorityEntityDaoBean() {
+		return this.authorityEntityDaoBean;
+	}
+
+	/**
+	 * 
+	 * @param userEntityDaoBean
+	 */
+	public void setUserEntityDaoBean(IUserEntityDao userEntityDaoBean) {
+		this.userEntityDaoBean = userEntityDaoBean;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public IUserEntityDao getUserEntityDaoBean() {
+		return this.userEntityDaoBean;
+	}
 
 	/**
 	 * @throws ServicesException 

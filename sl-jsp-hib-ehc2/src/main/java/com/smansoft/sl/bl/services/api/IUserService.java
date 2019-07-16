@@ -5,9 +5,14 @@ package com.smansoft.sl.bl.services.api;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import com.smansoft.sl.bl.services.vo.RegisterVO;
 import com.smansoft.sl.bl.services.vo.UserVO;
 import com.smansoft.sl.exceptions.ServicesException;
+import com.smansoft.sl.persistence.dao.api.IAuthorityEntityDao;
+import com.smansoft.sl.persistence.dao.api.IUserEntityDao;
 
 /**
  * @author SMan
@@ -19,6 +24,30 @@ public interface IUserService {
 	 * 
 	 */
 	static final String DEF_BEAN_NAME = "userServiceBean";
+	
+	/**
+	 * 
+	 * @param authorityEntityDaoBean
+	 */
+	void setAuthorityEntityDaoBean(IAuthorityEntityDao authorityEntityDaoBean);
+	
+	/**
+	 * 
+	 * @return
+	 */
+	IAuthorityEntityDao getAuthorityEntityDaoBean();
+
+	/**
+	 * 
+	 * @param userEntityDaoBean
+	 */
+	void setUserEntityDaoBean(IUserEntityDao userEntityDaoBean);
+	
+	/**
+	 * 
+	 * @return
+	 */
+	IUserEntityDao getUserEntityDaoBean();	
 
 	/**
 	 * 

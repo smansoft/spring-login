@@ -191,24 +191,24 @@ public class BaseUserVO implements Serializable, Cloneable, IPrintable {
 		if(getClass() != object.getClass()) {
 			return false;			
 		}
-		BaseUserVO registerVO = (BaseUserVO) object;
-		if((this.getLogin() != null || registerVO.getLogin() != null) &&   
-				(!this.getLogin().equals(registerVO.getLogin()))) {
+		BaseUserVO baseUserVO = (BaseUserVO) object;
+		if((this.getLogin() != null || baseUserVO.getLogin() != null) &&   
+				(!this.getLogin().equals(baseUserVO.getLogin()))) {
 			return false;
 		}
-		if((this.getEmail() != null || registerVO.getEmail() != null) &&   
-				(!this.getEmail().equalsIgnoreCase(registerVO.getEmail()))) {
+		if((this.getEmail() != null || baseUserVO.getEmail() != null) &&   
+				(!this.getEmail().equalsIgnoreCase(baseUserVO.getEmail()))) {
 			return false;
 		}
-		if((this.getName() != null || registerVO.getName() != null) &&   
-				(!this.getName().equalsIgnoreCase(registerVO.getName()))) {
+		if((this.getName() != null || baseUserVO.getName() != null) &&   
+				(!this.getName().equalsIgnoreCase(baseUserVO.getName()))) {
 			return false;
 		}
-		if((this.getPassword() != null || registerVO.getPassword() != null) &&   
-				(!this.getPassword().equalsIgnoreCase(registerVO.getPassword()))) {
+		if((this.getPassword() != null || baseUserVO.getPassword() != null) &&   
+				(!this.getPassword().equalsIgnoreCase(baseUserVO.getPassword()))) {
 			return false;
 		}
-		if(this.getEnabled() != registerVO.getEnabled()) {
+		if(this.getEnabled() != baseUserVO.getEnabled()) {
 			return false;
 		}
 		return true;

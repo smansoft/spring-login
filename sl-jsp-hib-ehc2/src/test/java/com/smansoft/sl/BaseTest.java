@@ -12,7 +12,9 @@ import java.sql.Statement;
 import java.util.Properties;
 
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.smansoft.sl.bl.services.vo.UserVO;
 import com.smansoft.tools.common.ExceptionTools;
 import com.smansoft.tools.print.api.IPrintTool;
 import com.smansoft.tools.print.api.types.PrintSfx;
@@ -99,7 +101,6 @@ public class BaseTest {
         }
         catch (FileNotFoundException e) {
         	printTool.error(ExceptionTools.stackTraceToString(e), e);
-        	
         } catch (IOException e) {
         	printTool.error(ExceptionTools.stackTraceToString(e), e);
         } catch (ClassNotFoundException e) {
@@ -108,6 +109,64 @@ public class BaseTest {
         	printTool.error(ExceptionTools.stackTraceToString(e), e);        	
         }		
 		printTool.debug(PrintSfx.SFX_OUT);
+	}
+	
+	/**
+	 * 
+	 * @param firstUserVO
+	 * @param secondUserVO
+	 * @param passw
+	 * @return
+	 */
+	protected static boolean compareTwoUserVOs(UserVO firstUserVO, UserVO secondUserVO, String passw) {
+		if(firstUserVO == secondUserVO) {
+			return true;
+		}
+		if((firstUserVO.getLogin() != null || secondUserVO.getLogin() != null) &&   
+				(!firstUserVO.getLogin().equals(secondUserVO.getLogin()))) {
+			return false;
+		}
+		if((firstUserVO.getEmail() != null || secondUserVO.getEmail() != null) &&   
+				(!firstUserVO.getEmail().equalsIgnoreCase(secondUserVO.getEmail()))) {
+			return false;
+		}
+		if((firstUserVO.getName() != null || secondUserVO.getName() != null) &&   
+				(!firstUserVO.getName().equalsIgnoreCase(secondUserVO.getName()))) {
+			return false;
+		}
+		BCryptPasswordEncoder passwEncoder = new BCryptPasswordEncoder();		
+		if((firstUserVO.getPassword() != null || secondUserVO.getPassword() != null) &&
+				(!passwEncoder.matches(passw, firstUserVO.getPassword()) ||  
+				!passwEncoder.matches(passw, secondUserVO.getPassword()))) {
+			return false;
+		}
+		if(firstUserVO.getEnabled() != secondUserVO.getEnabled()) {
+			return false;
+		}
+		if(firstUserVO.getAuthorities().size() != secondUserVO.getAuthorities().size()) {
+			return false;
+		}
+		int nFirstSize = firstUserVO.getAuthorities().size();
+		int nSecondSize = secondUserVO.getAuthorities().size();
+		if(nFirstSize != nSecondSize) {
+			return false;
+		}
+		boolean isEquals = true;
+		for(int i = 0; isEquals && i < nFirstSize; i++) {
+			String authority = firstUserVO.getAuthorities().get(i);
+			if(authority == null) {
+				continue;
+			}
+			isEquals = false;
+			for(int j = 0; j < nSecondSize; j++) {
+				String authorityVO = secondUserVO.getAuthorities().get(j);
+				if(authority == null && authorityVO == null || authority.equals(authorityVO)) {
+					isEquals = true;
+					break;
+				}
+			}
+		}
+		return isEquals;
 	}
 
 }

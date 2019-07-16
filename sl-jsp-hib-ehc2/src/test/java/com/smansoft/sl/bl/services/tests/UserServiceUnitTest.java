@@ -18,6 +18,7 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,13 +63,6 @@ public class UserServiceUnitTest extends BaseTest {
 	
 	private static final IPrintTool printTool = PrintTool
 			.getPrintToolInstance(LoggerFactory.getLogger(UserServiceUnitTest.class));
-    
-	/**
-	 * 
-	 */
-    @Autowired
-	@Qualifier(IUserService.DEF_BEAN_NAME)
-	private IUserService userServiceBean;
 	
 	/**
 	 * 
@@ -90,6 +84,13 @@ public class UserServiceUnitTest extends BaseTest {
 	@Autowired
 	@Qualifier("passwordEncoder")
 	private BCryptPasswordEncoder passwordEncoder;
+	
+	/**
+	 * 
+	 */
+	@Autowired    
+	@Qualifier(IUserService.DEF_BEAN_NAME)
+	private IUserService userServiceBean;
 
 	/**
 	 * 
@@ -117,81 +118,82 @@ public class UserServiceUnitTest extends BaseTest {
 	public void test1CreateUser() {
 		printTool.debug(PrintSfx.SFX_IN);
 		////----------------------------------
+		String login="sman";
+		String email="sman@smansoft.com";
+		String name="SMan";		
 		String passw="12345";
 		String encodedPassw = passwordEncoder.encode(passw);
+		boolean enabled = true;
+		boolean isAdmin = true;		
 		////----------------------------------		
-///		RegisterVO registerVO = new RegisterVO();  /// Mockito.spy(RegisterVO.class);
 		RegisterVO registerVO = Mockito.spy(RegisterVO.class);		
 		
-		registerVO.setLogin("sman");
-		registerVO.setEmail("sman@smansoft.com");
-		registerVO.setName("SMan");		
-		registerVO.setPassword("12345");		
-		registerVO.setPasswordConfirm(passw);
-		registerVO.setEnabled(true);
-		registerVO.setIsAdmin(true);
+		Mockito.when(registerVO.getLogin()).thenReturn(login);
+		Mockito.when(registerVO.getEmail()).thenReturn(email);		
+		Mockito.when(registerVO.getName()).thenReturn(name);		
+		Mockito.when(registerVO.getPassword()).thenReturn(passw);
+		Mockito.when(registerVO.getPasswordConfirm()).thenReturn(passw);		
+		Mockito.when(registerVO.getEnabled()).thenReturn(enabled);		
+		Mockito.when(registerVO.getIsAdmin()).thenReturn(isAdmin);	
 		////----------------------------------
-///		UserVO userVO = new UserVO();  // Mockito.spy(UserVO.class);
-		UserVO userVO = Mockito.spy(UserVO.class);		
+		UserVO userVO = Mockito.spy(UserVO.class);
 		
-		userVO.setLogin("sman");
-		userVO.setEmail("sman@smansoft.com");
-		userVO.setName("SMan");
-		userVO.setPassword(encodedPassw);
-		userVO.setEnabled(true);
+		Mockito.when(userVO.getLogin()).thenReturn(login);
+		Mockito.when(userVO.getEmail()).thenReturn(email);		
+		Mockito.when(userVO.getName()).thenReturn(name);		
+		Mockito.when(userVO.getPassword()).thenReturn(encodedPassw);
+		Mockito.when(userVO.getEnabled()).thenReturn(enabled);
+		
 		List<String> authorities = new ArrayList<String>();
 		authorities.add(AuthorityType.RoleUser.toString());
 		authorities.add(AuthorityType.RoleAdmin.toString());		
 		
-		userVO.setAuthorities(authorities);
+		Mockito.when(userVO.getAuthorities()).thenReturn(authorities);		
 		////----------------------------------		
-///		UserEntity userEntity = new UserEntity(); //  Mockito.spy(UserEntity.class);
-		UserEntity userEntity = Mockito.spy(UserEntity.class);		
+		UserEntity userEntity = Mockito.spy(UserEntity.class);
 		
-		userEntity.setUserLogin("sman");
-		userEntity.setEmail("sman@smansoft.com");
-		userEntity.setUserName("SMan");
-		userEntity.setPassword(encodedPassw);
-		userEntity.setEnabled(true);
+		Mockito.when(userEntity.getUserLogin()).thenReturn(login);		
+		Mockito.when(userEntity.getEmail()).thenReturn(email);		
+		Mockito.when(userEntity.getUserName()).thenReturn(name);		
+		Mockito.when(userEntity.getPassword()).thenReturn(encodedPassw);		
+		Mockito.when(userEntity.getEnabled()).thenReturn(enabled);		
 		////----------------------------------		
 		List<AuthorityEntity> authorityEntities = new ArrayList<>();
 
-		AuthorityEntity authorityEntity = new AuthorityEntity();
-		authorityEntity.setAuthorityType(AuthorityType.RoleUser);
-		authorityEntity.setUser(userEntity);
+		AuthorityEntity authorityEntity = Mockito.spy(AuthorityEntity.class);
+		Mockito.when(authorityEntity.getAuthorityType()).thenReturn(AuthorityType.RoleUser);				
+		Mockito.when(authorityEntity.getUser()).thenReturn(userEntity);
 		authorityEntities.add(authorityEntity);
 		
-		authorityEntity = new AuthorityEntity();
-		authorityEntity.setAuthorityType(AuthorityType.RoleAdmin);
-		authorityEntity.setUser(userEntity);
-		authorityEntities.add(authorityEntity);
+		authorityEntity = Mockito.spy(AuthorityEntity.class);
+		Mockito.when(authorityEntity.getAuthorityType()).thenReturn(AuthorityType.RoleAdmin);				
+		Mockito.when(authorityEntity.getUser()).thenReturn(userEntity);
+		authorityEntities.add(authorityEntity);		
 			
-		userEntity.setAuthorities(authorityEntities);
+		Mockito.when(userEntity.getAuthorities()).thenReturn(authorityEntities);
 		////----------------------------------
 		UserEntity userEntityRes = Mockito.spy(UserEntity.class);
 		
-		userEntityRes.setId(1L);
-		userEntityRes.setUserLogin("sman");
-		userEntityRes.setEmail("sman@smansoft.com");
-		userEntityRes.setUserName("SMan");
-		userEntityRes.setPassword(encodedPassw);
-		userEntityRes.setEnabled(true);
+		Mockito.when(userEntityRes.getId()).thenReturn(1L);		
+		Mockito.when(userEntityRes.getUserLogin()).thenReturn(login);		
+		Mockito.when(userEntityRes.getEmail()).thenReturn(email);		
+		Mockito.when(userEntityRes.getUserName()).thenReturn(name);		
+		Mockito.when(userEntityRes.getPassword()).thenReturn(encodedPassw);		
+		Mockito.when(userEntityRes.getEnabled()).thenReturn(enabled);		
 		////----------------------------------		
 		List<AuthorityEntity> authorityEntitiesRes = new ArrayList<>();
-
-		AuthorityEntity authorityEntityRes = new AuthorityEntity();
-		authorityEntityRes.setId(1L);
-		authorityEntityRes.setAuthorityType(AuthorityType.RoleUser);
-		authorityEntityRes.setUser(userEntityRes);
+		
+		AuthorityEntity authorityEntityRes = Mockito.spy(AuthorityEntity.class);
+		Mockito.when(authorityEntityRes.getAuthorityType()).thenReturn(AuthorityType.RoleUser);				
+		Mockito.when(authorityEntityRes.getUser()).thenReturn(userEntity);
 		authorityEntitiesRes.add(authorityEntityRes);
 		
-		authorityEntityRes = new AuthorityEntity();
-		authorityEntityRes.setId(2L);		
-		authorityEntityRes.setAuthorityType(AuthorityType.RoleAdmin);
-		authorityEntityRes.setUser(userEntity);
+		authorityEntityRes = Mockito.spy(AuthorityEntity.class);
+		Mockito.when(authorityEntityRes.getAuthorityType()).thenReturn(AuthorityType.RoleAdmin);				
+		Mockito.when(authorityEntityRes.getUser()).thenReturn(userEntity);
 		authorityEntitiesRes.add(authorityEntityRes);
-		////----------------------------------		
-		userEntityRes.setAuthorities(authorityEntitiesRes);
+			
+		Mockito.when(userEntityRes.getAuthorities()).thenReturn(authorityEntitiesRes);
 		////----------------------------------		
 		try {
 			Mockito.when(userEntityDaoBean.save(userEntity)).thenReturn(userEntityRes);
@@ -212,6 +214,7 @@ public class UserServiceUnitTest extends BaseTest {
 		} catch (DaoException e) {
 			Assertions.fail(ExceptionTools.stackTraceToString(e));			
 		}
+		////----------------------------------		
 		printTool.info("Test is OK");		
 		printTool.debug(PrintSfx.SFX_OUT);
 		Assertions.assertTrue(true);

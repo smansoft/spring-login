@@ -88,5 +88,8 @@ you will need to import CA certificate (as trusted, for ex. Trusted Root CA) fro
 ssl/ssl.ecdsa.ca/out/ca.sl.pem. Also you can extract CA certificate from
 src/main/resources/srv.sl.p12.
 
+Project sl-jsp-hib-ehc2 contains some Unit and Integration Tests (Spring Boot Test, JUnit 5, Mockito)
+(under development yet).
+
 Please, read this post: http://blog.smansoft.com/2019/04/13/spring-login-stack-templates/
 for more info and send your notes and questions to info@smansoft.com.

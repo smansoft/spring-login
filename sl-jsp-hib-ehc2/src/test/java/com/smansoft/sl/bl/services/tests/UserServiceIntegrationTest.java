@@ -41,8 +41,8 @@ import com.smansoft.tools.print.impl.PrintTool;
  * @author SMan
  *
  */
-@ExtendWith(SpringExtension.class)
 @SpringBootTest
+@ExtendWith(SpringExtension.class)
 @TestPropertySource(locations="classpath:application-test.properties")
 @Execution(ExecutionMode.SAME_THREAD)
 @ComponentScan(basePackages="com.smansoft.sl")

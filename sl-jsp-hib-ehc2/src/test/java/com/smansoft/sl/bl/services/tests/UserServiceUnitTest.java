@@ -18,7 +18,6 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
-import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,8 +51,8 @@ import com.smansoft.tools.print.impl.PrintTool;
  * @author SMan
  *
  */
-@ExtendWith(SpringExtension.class)
 @SpringBootTest
+@ExtendWith(SpringExtension.class)
 @TestPropertySource(locations="classpath:application-test.properties")
 @Execution(ExecutionMode.SAME_THREAD)
 @ComponentScan(basePackages="com.smansoft.sl")

@@ -33,8 +33,8 @@ import com.smansoft.tools.print.impl.PrintTool;
  * @author SMan
  *
  */
-@ExtendWith(SpringExtension.class)
 @SpringBootTest
+@ExtendWith(SpringExtension.class)
 @Execution(ExecutionMode.SAME_THREAD)
 @TestMethodOrder(OrderAnnotation.class)
 public class UserVOUnitTest {

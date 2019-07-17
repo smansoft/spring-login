@@ -47,8 +47,8 @@ import com.smansoft.tools.print.impl.PrintTool;
  * @author SMan
  *
  */
-@ExtendWith(SpringExtension.class)
 @SpringBootTest
+@ExtendWith(SpringExtension.class)
 @TestPropertySource(locations="classpath:application-test.properties")
 @Import(SpringLoginPersistenceConfig.class)
 @Execution(ExecutionMode.SAME_THREAD)

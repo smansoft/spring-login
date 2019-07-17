@@ -30,12 +30,10 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.smansoft.sl.bl.services.api.IUserService;
-import com.smansoft.sl.bl.services.vo.RegisterVO;
 import com.smansoft.sl.bl.services.vo.UserVO;
 import com.smansoft.sl.persistence.types.AuthorityType;
 import com.smansoft.sl.web.controllers.LoginRegisterController;

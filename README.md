@@ -41,7 +41,7 @@ This Suite contains follow demo/template projects:
 
 	- sl-jsp-djpa-jc-hib-ehc3-ssl (Spring Login with HTTPS)
 		Spring Boot
-		JSP
+		JSP + Apache Tiles 3
 		Spring MVC + Spring-Security
 		DAO (Spring Data JPA)
 		JCache
